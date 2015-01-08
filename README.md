@@ -5,7 +5,7 @@ This script generates [GraphViz](http://www.graphviz.org) input files (known fro
 Since it has been hacked together in only few hours, it is still rather incomplete but already functional.
 
 Currently, due to limitations of the HTML parser of GraphViz, only svg output can make use of all features.
-However, you can convert svg-files to any other graphics file format, e.g. using [Inkscape](http://www.inkscape.org).
+However, you can convert svg-files to any other graphics file format, e.g. using [Inkscape](http://www.inkscape.org) or (even simpler) [CairoSVG](http://cairosvg.org).
 
 Usage
 -----

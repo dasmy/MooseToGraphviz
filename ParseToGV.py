@@ -3,13 +3,21 @@
 import sys, os
 from ParseGetPot import GPNode, ParseGetPot
 
-globaloptions = {'includeparams' : True, # if False, parameters are not shown which reduces graph size considerably
-                 'maxlen_value' : 35, # maximum length (characters) of values in param fields
+globaloptions = {'includeparams' : True,   # if False, parameters are not shown which reduces graph size considerably
+                 'maxlen_value' : 35,      # maximum length (characters) of values in param fields
+                 'connection_ports' : True # if set to True, arrows point to entries in parameter tables. Otherwise, they point to the nodes
                  }
 
-globalpars=['layout=dot;size="20,20";rankdir=LR;splines=ortho;pad="0";ranksep="2.5";nodesep="0.3"',
+globalpars=['layout=dot;size="20,20";rankdir=LR;splines=true;pad="0";ranksep="2.5";nodesep="0.3"',
             'node[shape=box3d];'
             'edge[color="#808080";fontcolor="#808080"];']
+            
+# ports only work with splines... :-(
+if globaloptions['connection_ports']:
+  globalpars[0] += ';splines=true'
+else:
+  globalpars[0] += ';splines=ortho'
+  
 nodelist = []
 edgelist = []
 sub_list = {} # this list will be used to store the root nodes of all multiapps to simplify interconnection
@@ -50,7 +58,11 @@ def ParseNodes(nodes, global_root):
             for nd_multi in sub_list[node.params['multi_app']]:
               nd, found = search_upwards(nd_multi, valpart)
               if found:
-                edgelist.append('%s -> %s[headlabel="%s",color="red"];' % (tr(nd.fullName()), tr(node.fullName()), param ))
+                if globaloptions['connection_ports']:
+                  label += ['<TR><TD PORT="%s">%s</TD><TD>=</TD><TD>%s</TD></TR>' % (param, param, value[0:globaloptions['maxlen_value']])]
+                  edgelist.append('%s -> %s:%s[color="red"];' % (tr(nd.fullName()), tr(node.fullName()), param ))
+                else:
+                  edgelist.append('%s -> %s[headlabel="%s",color="red"];' % (tr(nd.fullName()), tr(node.fullName()), param ))
                 break
             continue
 
@@ -59,7 +71,11 @@ def ParseNodes(nodes, global_root):
         # this looks inefficient but enforces matches to be as local as possible
         nd, found = search_upwards(node, valpart)
         if found:
-          edgelist.append('%s -> %s[headlabel="%s"];' % (tr(nd.fullName()), tr(node.fullName()), param ))
+          if globaloptions['connection_ports']:
+            label += ['<TR><TD PORT="%s">%s</TD><TD>=</TD><TD>%s</TD></TR>' % (param, param, value[0:globaloptions['maxlen_value']])]
+            edgelist.append('%s -> %s:%s[];' % (tr(nd.fullName()), tr(node.fullName()), param ))
+          else:
+            edgelist.append('%s -> %s[headlabel="%s"];' % (tr(nd.fullName()), tr(node.fullName()), param ))
 
       if globaloptions['includeparams'] and not found and param != 'type':
           label += ['<TR><TD>%s</TD><TD>=</TD><TD>%s</TD></TR>' % (param, value[0:globaloptions['maxlen_value']])]
