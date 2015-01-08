@@ -1,10 +1,10 @@
 A GraphViz generator for MOOSE input files
 ==========================================
 
-This script generates [http://www.graphviz.org](GraphViz) input files (known from the callgraph/dependency graph output of Doxygen) from input files for [http://mooseframework.org](MOOSE) applications.
+This script generates [GraphViz](http://www.graphviz.org) input files (known from the callgraph/dependency graph output of Doxygen) from input files for [MOOSE](http://mooseframework.org) applications.
 
 Currently, due to limitations of the HTML parser of GraphViz, only svg output can make use of all features.
-However, you can convert svg-files to any other graphics file format, e.g. using [http://www.inkscape.org](Inkscape).
+However, you can convert svg-files to any other graphics file format, e.g. using [Inkscape](http://www.inkscape.org).
 
 Usage
 -----
