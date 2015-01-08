@@ -49,6 +49,7 @@ def ParseNodes(nodes, global_root):
     # parse parameters
     for param, value in node.params.iteritems():
       found = False
+      addedrow = False
       for valpart in value.split(' '): # treat "displacements='dx dy dz'" separately
 
         if node.fullName().find('Transfers') >= 0:
@@ -59,7 +60,9 @@ def ParseNodes(nodes, global_root):
               nd, found = search_upwards(nd_multi, valpart)
               if found:
                 if globaloptions['connection_ports']:
-                  label += ['<TR><TD PORT="%s">%s</TD><TD>=</TD><TD>%s</TD></TR>' % (param, param, value[0:globaloptions['maxlen_value']])]
+                  if not addedrow: # avoid having multiple identical table rows in the case "displacements='dx dy dz'"
+                    label += ['<TR><TD PORT="%s">%s</TD><TD>=</TD><TD>%s</TD></TR>' % (param, param, value[0:globaloptions['maxlen_value']])]
+                    addedrow = True
                   edgelist.append('%s -> %s:%s[color="red"];' % (tr(nd.fullName()), tr(node.fullName()), param ))
                 else:
                   edgelist.append('%s -> %s[headlabel="%s",color="red"];' % (tr(nd.fullName()), tr(node.fullName()), param ))
@@ -72,7 +75,9 @@ def ParseNodes(nodes, global_root):
         nd, found = search_upwards(node, valpart)
         if found:
           if globaloptions['connection_ports']:
-            label += ['<TR><TD PORT="%s">%s</TD><TD>=</TD><TD>%s</TD></TR>' % (param, param, value[0:globaloptions['maxlen_value']])]
+            if not addedrow: # avoid having multiple identical table rows in the case "displacements='dx dy dz'"
+              label += ['<TR><TD PORT="%s">%s</TD><TD>=</TD><TD>%s</TD></TR>' % (param, param, value[0:globaloptions['maxlen_value']])]
+              addedrow = True
             edgelist.append('%s -> %s:%s[];' % (tr(nd.fullName()), tr(node.fullName()), param ))
           else:
             edgelist.append('%s -> %s[headlabel="%s"];' % (tr(nd.fullName()), tr(node.fullName()), param ))
