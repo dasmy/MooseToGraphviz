@@ -25,7 +25,7 @@ Example
 -------
 An example output for MOOSEs [https://github.com/idaholab/moose/blob/devel/examples/ex20_user_objects/ex20.i](`ex20.i`) file reads
 
-![ex20.i.svg](https://github.com/dasmy/MooseToGraphviz/raw/master/ex20.i.svg "ex20.i.svg")
+![ex20.i.svg](https://rawgit.com/dasmy/MooseToGraphviz/master/ex20.i.svg)
 
 Customization
 -------------
