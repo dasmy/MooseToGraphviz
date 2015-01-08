@@ -2,6 +2,7 @@ A GraphViz generator for MOOSE input files
 ==========================================
 
 This script generates [GraphViz](http://www.graphviz.org) input files (known from the callgraph/dependency graph output of Doxygen) from input files for [MOOSE](http://mooseframework.org) applications.
+Since it has been hacked together in only few hours, it is still rather incomplete but already functional.
 
 Currently, due to limitations of the HTML parser of GraphViz, only svg output can make use of all features.
 However, you can convert svg-files to any other graphics file format, e.g. using [Inkscape](http://www.inkscape.org).
@@ -25,7 +26,7 @@ Example
 -------
 An example output for MOOSEs [`ex20.i`](https://github.com/idaholab/moose/blob/devel/examples/ex20_user_objects/ex20.i) file reads
 
-![ex20.i.svg](https://rawgit.com/dasmy/MooseToGraphviz/master/ex20.i.svg)
+![examples/ex20.i.svg](https://rawgit.com/dasmy/MooseToGraphviz/master/examples/ex20.i.svg)
 
 Customization
 -------------
@@ -39,3 +40,9 @@ Advanced Usage
 For getting an overview of all MOOSE example files, you might want to call (this version using `open` is for MacOS, changing it for Linux is trivial)
 
     for file in ~/workspace/moose/examples/*/*.i; do ./ParseToGV.py $file | dot -Tsvg > ${file}.svg && open -a firefox ${file}.svg; done
+
+### MultiApps
+MultiApps are also supported.
+A rather complex example is composed of [`delta_real_parameters.i`](examples/delta_real_parameters.i) and [`delta_real_parameters_sub.i`](examples/delta_real_parameters_sub.i) and yields
+
+![examples/ex20.i.svg](https://rawgit.com/dasmy/MooseToGraphviz/master/examples/delta_real_parameters.i.svg)
