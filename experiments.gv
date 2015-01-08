@@ -1,0 +1,40 @@
+strict digraph GraphName {
+  mynode [label="\N\nbla=1\nblupp=2\nboing=3", shape=record]
+  anode [label="\N"]
+  
+  subgraph clustersub {
+    yournode [label="\N\nbla=A\nblupp=B\nboing=C"]
+    theirnode [label="\N\nbla=A\nblupp=B\nboing=C"]
+  }
+  
+  mynode->theirnode [label=1]
+  yournode->theirnode [label=2]
+  yournode->mynode [label=3]
+  anode -> sub [label=6]
+  
+  n0 [shape=record,label="record\nbla\nbla\nbla"]
+  n01 [shape=polygon,label="polygon\nbla\nbla\nbla"]
+  n02 [shape=plaintext,label="plaintext\nbla\nbla\nbla"]
+  n03 [shape=ellipse,label="ellipse\nbla\nbla\nbla"]
+  n04 [shape=oval,label="oval\nbla\nbla\nbla"]
+  n05 [shape=circle,label="circle\nbla\nbla\nbla"]
+  n06 [shape=egg,label="egg\nbla\nbla\nbla"]
+  n07 [shape=triangle,label="triangle\nbla\nbla\nbla"]
+  n08 [shape=box,label="box\nbla\nbla\nbla"]
+  n00 [shape=diamond,label="diamond\nbla\nbla\nbla"]
+  n011 [shape=trapezium,label="trapezium\nbla\nbla\nbla"]
+  n022 [shape=parallelogram,label="parallelogram\nbla\nbla\nbla"]
+  n033 [shape=house,label="house\nbla\nbla\nbla"]
+  n044 [shape=hexagon,label="hexagon\nbla\nbla\nbla"]
+  n055 [shape=octagon,label="octagon\nbla\nbla\nbla"]
+  n066 [shape=note,label="note\nbla\nbla\nbla"]
+  n077 [shape=tab,label="tab\nbla\nbla\nbla"]
+  n088 [shape=box3d,label="box3d\nbla\nbla\nbla"]
+  n099 [shape=component,label="component\nbla\nbla\nbla"]
+  
+  anothernode[label=<<B>blabla&nbsp;</B>
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+      <TR><TD>bla</TD></TR>
+    </TABLE>>, shape=plaintext];
+
+}
