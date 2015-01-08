@@ -21,6 +21,12 @@ An online conversion can be performed by redirecting the output to GraphViz via
 
 Then, `file.svg` contains the produced graph.
 
+Example
+-------
+An example output for MOOSEs [https://github.com/idaholab/moose/blob/devel/examples/ex20_user_objects/ex20.i](`ex20.i`) file reads
+
+![ex20.i.svg](https://github.com/dasmy/MooseToGraphviz/raw/master/ex20.i.svg "ex20.i.svg")
+
 Customization
 -------------
 There are not many customization options available, yet.
