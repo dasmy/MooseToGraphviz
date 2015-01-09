@@ -49,7 +49,10 @@
     distance_outer   =distance_outer
   [../]
 
- [./aux_active_tension]  type=MaterialRealAux property=active_tension variable=active_tension [../]
+  [./aux_active_tension]  type=MaterialRealAux
+    material=active_tension_material # this property does not exist in reality but enforces creation of an appropriately helpful arrow in the graphviz output
+    variable=active_tension
+  [../]
 []
 
 [Materials]
@@ -66,6 +69,7 @@
     type=CardiacHolzapfel2009Material
     block=all
     use_displaced_mesh=false
+    fibre_directions = fibres # this property does not exist in reality but enforces creation of an appropriately helpful arrow in the graphviz output
     # material parameters as given in Table 1 of [Holzapfel 2009]
     #in following order:     a,    b,   a_f,   b_f,  a_s,   b_s, a_fs,  b_fs
     material_parameters='0.059 8.023 18.472 16.026 2.481 11.120 0.216 11.436'
@@ -107,7 +111,9 @@
 
 [Postprocessors]
   #[./elastic_energy] type=ElementIntegralMaterialProperty execute_on=timestep mat_prop=elastic_energy_density [../]
-  [./volume_ratio] type=CardiacMaterialVolumeRatioPostprocessor execute_on=residual [../]
+  [./volume_ratio] type=CardiacMaterialVolumeRatioPostprocessor execute_on=residual 
+     material=cardiac_material # this property does not exist in reality but enforces creation of an appropriately helpful arrow in the graphviz output
+  [../]
 []
 
 [Executioner]

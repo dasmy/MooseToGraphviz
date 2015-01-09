@@ -18,6 +18,7 @@ styles = { 'Kernels'       : {'color' : '#5457b0', 'fontcolor' : '#5457b0' },
            'Materials'     : {'color' : '#aad76e', 'fontcolor' : '#aad76e' },
            'Mesh'          : {'color' : '#0000ff', 'fontcolor' : '#0000ff' },
            'Transfers'     : {'color' : '#ff0000', 'fontcolor' : '#ff0000' },
+           'Splits'        : {'color' : '#ff00ff', 'fontcolor' : '#ff00ff' },
          }
 
 

@@ -52,6 +52,7 @@
     surface_to_volume = 1000.0
     capacitance = 1.0
     use_displaced_mesh = true
+    conductivity = conductivity # this property does not exist in reality but enforces creation of an appropriately helpful arrow in the graphviz output
   [../]
   
   [./ecforcing]
@@ -114,6 +115,7 @@
   [./conductivity]
     type = ElectrocardioConductivity
     conductivities = '0.0012 0.003 0.003'
+    fibre_directions = cardiac_properties # this property does not exist in reality but enforces creation of an appropriately helpful arrow in the graphviz output
     block = all
     #use_displaced_mesh = true # TODO: if activated I am getting a segfault
   [../]
