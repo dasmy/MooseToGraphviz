@@ -39,7 +39,7 @@ sub_list = {} # this list will be used to store the root nodes of all multiapps 
 
 
 def tr(s):
-  return s.replace('/','_').replace('.','_').replace(':','_')
+  return s.replace('/','_').replace('.','_').replace(':','_').replace('-','_')
 
 
 def search_upwards(node, search_string):
