@@ -66,7 +66,7 @@ def add_edge(label, param, value, nd_from, nd_to, addedrow, style):
 def ParseNodes(nodes, global_root, parentstyle):
   for node in nodes:
     label = ['<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1">',
-             '<TR><TD COLSPAN="3" BGCOLOR="gray"><B>%s&nbsp;</B>' % tr(node.name)]
+             '<TR><TD COLSPAN="3" BGCOLOR="#cccccc"><B>%s&nbsp;</B>' % tr(node.name)]
     # if there is a type attribute, we add it to the label line
     if 'type' in node.params_list:
       label[-1] += ':&nbsp;%s' % node.params['type']
