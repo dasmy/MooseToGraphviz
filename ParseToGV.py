@@ -17,6 +17,7 @@ styles = { 'Kernels'       : {'color' : '#5457b0', 'fontcolor' : '#5457b0' },
            'ICs'           : {'color' : '#be409a', 'fontcolor' : '#be409a' },
            'Materials'     : {'color' : '#aad76e', 'fontcolor' : '#aad76e' },
            'Mesh'          : {'color' : '#0000ff', 'fontcolor' : '#0000ff' },
+           'Transfers'     : {'color' : '#ff0000', 'fontcolor' : '#ff0000' },
          }
 
 
@@ -62,7 +63,7 @@ def add_edge(label, param, value, nd_from, nd_to, addedrow, style):
   return label, addedrow
 
 
-def ParseNodes(nodes, global_root):
+def ParseNodes(nodes, global_root, parentstyle):
   for node in nodes:
     label = ['<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1">',
              '<TR><TD COLSPAN="3" BGCOLOR="gray"><B>%s&nbsp;</B>' % tr(node.name)]
@@ -85,7 +86,7 @@ def ParseNodes(nodes, global_root):
             for nd_multi in sub_list[node.params['multi_app']]:
               nd, found = search_upwards(nd_multi, valpart)
               if found:
-                label, addedrow = add_edge(label, param, value, nd, node, addedrow, 'color="red"')
+                label, addedrow = add_edge(label, param, value, nd, node, addedrow, 'color="%s"' % styles['Transfers']['color'])
                 break
             continue
 
@@ -105,18 +106,17 @@ def ParseNodes(nodes, global_root):
       if node.name != 'global_root':
         # no frame around global root node
         nodelist.append("subgraph cluster_%s" % node.name)
-      nodelist.append('{')  
-      nodelist.append('  label=<<B>%s</B>>;' % node.name)
+      nodelist.append('{  label=<<B>%s</B>>;' % node.name)
+      style=''
       if node.name in styles.keys():
-        style=''
         for key, val in styles[node.name].iteritems():
           style += '%s="%s";' % (key, val)
         nodelist.append(style)
       # parse this node's children
-      ParseNodes(node.children.values(), global_root)
+      ParseNodes(node.children.values(), global_root, style)
       nodelist.append("}")
-    else:    
-      nodelist.append('%s[label=<%s>];' % (tr(node.fullName()), '\n'.join(label)))
+    else:
+      nodelist.append('%s[label=<%s>;%sfontcolor="black"];' % (tr(node.fullName()), '\n'.join(label), parentstyle))
 
 
 def ParseFiles(global_root, sub_apps, basepath):
@@ -157,7 +157,7 @@ if __name__ == '__main__':
     while len(sub_apps) > 0:
       sub_apps = ParseFiles(global_root, sub_apps, basepath)
     
-    ParseNodes(global_root.children.values(), global_root)
+    ParseNodes(global_root.children.values(), global_root, '')
 
     print 'strict digraph "%s" {' % sys.argv[1]
     print '\n'.join(globalpars)
