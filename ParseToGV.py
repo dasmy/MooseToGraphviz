@@ -3,9 +3,10 @@
 import sys, os
 from ParseGetPot import GPNode, ParseGetPot
 
-globaloptions = {'includeparams' : True,   # if False, parameters are not shown which reduces graph size considerably
-                 'maxlen_value' : 35,      # maximum length (characters) of values in param fields
-                 'connection_ports' : True # if set to True, arrows point to entries in parameter tables. Otherwise, they point to the nodes
+globaloptions = {'includeparams'    : True,  # if False, parameters are not shown which reduces graph size considerably
+                 'maxlen_value'     : 35,    # maximum length (characters) of values in param fields
+                 'connection_ports' : True,  # if set to True, arrows point to entries in parameter tables. Otherwise, they point to the nodes
+                 'showactive'       : False, # if set to False, node's "active" parameters are ignored for the output (usually they make output a bit messy but do not add much information)
                  }
 
 styles = { 'Kernels'       : {'color' : '#5457b0', 'fontcolor' : '#5457b0' },
@@ -85,11 +86,14 @@ def ParseNodes(nodes, global_root, parentstyle):
       label[-1] += ':&nbsp;%s' % node.params['type']
     label[-1] += '</TD></TR>'
     
-    unconnected_params = []
-    # parse parameters
+    # parse parameters, we count how much we found to avoid showing empty tables for clusters
+    foundparams = 0
     for param, value in node.params.iteritems():
+      if param == 'active' and not globaloptions['showactive']:
+        continue
       found = False
       addedrow = False
+      foundparams += 1
       for valpart in value.split(' '): # treat "displacements='dx dy dz'" separately
 
         if node.fullName().find('Transfers') >= 0:
@@ -122,8 +126,7 @@ def ParseNodes(nodes, global_root, parentstyle):
     label += ['</TABLE>']
   
     if len(node.children) > 0:
-      if node.name != 'global_root':
-        # no frame around global root node
+      if node.name != 'global_root': # no frame around global root node
         nodelist.append("subgraph cluster_%s" % node.name)
       nodelist.append('{  label=<<B>%s</B>>;' % node.name)
       style=''
@@ -131,6 +134,8 @@ def ParseNodes(nodes, global_root, parentstyle):
         for key, val in styles[node.name].iteritems():
           style += '%s="%s";' % (key, val)
         nodelist.append(style)
+      if foundparams > 0: # only add tables that contain content
+        nodelist.append('%s[label=<%s>, shape=plaintext];' % (tr(node.fullName()), '\n'.join(label)))
       # parse this node's children
       ParseNodes(node.children.values(), global_root, style)
       nodelist.append("}")
