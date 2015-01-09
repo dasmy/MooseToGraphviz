@@ -24,7 +24,11 @@ Then, `file.svg` contains the produced graph.
 
 Example
 -------
-An example output for MOOSEs [`ex20.i`](examples/ex20.i) file reads
+An example output for MOOSEs [`ex10.i`](examples/ex10.i) file reads
+
+![examples/ex20.i.svg](https://rawgit.com/dasmy/MooseToGraphviz/master/examples/ex10.i.svg)
+
+For the slightly more complex [`ex20.i`](examples/ex20.i) file, the output reads
 
 ![examples/ex20.i.svg](https://rawgit.com/dasmy/MooseToGraphviz/master/examples/ex20.i.svg)
 
