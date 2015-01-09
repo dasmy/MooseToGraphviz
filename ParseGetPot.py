@@ -172,7 +172,6 @@ class ParseGetPot:
               current_position = 0
               found_it = False
               # in case of a multiline parameter, we have to remove the leading single/double tick
-              print param_value
               param_value = param_value.lstrip(re_tick[2])
               # Keep eating lines until we find its mate
               while current_line < len(lines):
