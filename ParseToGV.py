@@ -21,7 +21,7 @@ styles = { 'Kernels'       : {'color' : '#5457b0', 'fontcolor' : '#5457b0' },
          }
 
 
-globalpars=['layout=dot;size="20,20";rankdir=LR;splines=true;pad="0";ranksep="2.5";nodesep="0.3"',
+globalpars=['layout=dot;size="20,20";rankdir=LR;splines=true;pad="0";ranksep="1.5";nodesep="0.3"',
             'node[shape=box3d];'
             'edge[color="#808080";fontcolor="#808080"];']
             
@@ -53,13 +53,25 @@ def search_upwards(node, search_string):
 
 
 def add_edge(label, param, value, nd_from, nd_to, addedrow, style):
+  # we revert all arrows for 'variable' parameters since this feels more logical
+  revert = param == 'variable'
+
   if globaloptions['connection_ports']:
     if not addedrow: # avoid having multiple identical table rows in the case "displacements='dx dy dz'"
-      label += ['<TR><TD PORT="%s">%s</TD><TD>=</TD><TD>%s</TD></TR>' % (param, param, value[0:globaloptions['maxlen_value']])]
+      if revert:
+        label += ['<TR><TD>%s</TD><TD>=</TD><TD PORT="%s">%s</TD></TR>' % (param, param, value[0:globaloptions['maxlen_value']])]
+      else:
+        label += ['<TR><TD PORT="%s">%s</TD><TD>=</TD><TD>%s</TD></TR>' % (param, param, value[0:globaloptions['maxlen_value']])]
       addedrow = True
-    edgelist.append('%s -> %s:%s[%s];' % (tr(nd_from.fullName()), tr(nd_to.fullName()), param, style ))
+    if revert:
+      edgelist.append('%s:%s -> %s[%s];' % (tr(nd_to.fullName()), param, tr(nd_from.fullName()), style ))
+    else:
+      edgelist.append('%s -> %s:%s[%s];' % (tr(nd_from.fullName()), tr(nd_to.fullName()), param, style ))
   else:
-    edgelist.append('%s -> %s[headlabel="%s";%s];' % (tr(nd_from.fullName()), tr(nd_to.fullName()), param, style ))
+    if revert:
+      edgelist.append('%s -> %s[taillabel="%s";%s];' % (tr(nd_to.fullName()), tr(nd_from.fullName()), param, style ))
+    else:
+      edgelist.append('%s -> %s[headlabel="%s";%s];' % (tr(nd_from.fullName()), tr(nd_to.fullName()), param, style ))
   return label, addedrow
 
 
@@ -89,7 +101,13 @@ def ParseNodes(nodes, global_root, parentstyle):
                 label, addedrow = add_edge(label, param, value, nd, node, addedrow, 'color="%s"' % styles['Transfers']['color'])
                 break
             continue
-
+          else:
+            if (node.params['direction'] == 'to_multiapp'   and param == 'source_variable' ) or \
+               (node.params['direction'] == 'from_multiapp' and param == 'variable' ):
+              nd, found = search_upwards(node, valpart)
+              if found:
+                label, addedrow = add_edge(label, param, value, nd, node, addedrow, 'color="%s"' % styles['Transfers']['color'])
+          
         # regular parameter inside or outside a Transfer block
         # we first search local trees and slowly traverse upwards until we found something
         # this looks inefficient but enforces matches to be as local as possible
