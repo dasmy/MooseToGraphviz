@@ -72,16 +72,25 @@
 
 [Functions]
   [./ElectrocardioForcing_function]
+    type = PiecewiseFunction
+    default_function = '0'
+    functions = 'PurkinjePacing'
+    left      = ' 0.0'
+    right     = ' 5.0'
+  [../]
+
+  [./PurkinjePacing]
     # we are pacing at the following "early activation sites" which were hand-picked in Paraview
     # to closely match [Potse2006, Figure 1]:
     #   0.8 6.4 -3.1
     #  -1.4 6.4 -2.9
     #   2.2 8.9 -4.2
-    type = PiecewiseParsedFunction
-    default_function = '0'
-    functions = '-30.0*exp(-0.5*pow(x-0.8,2.0)/pow(0.15,2.0)-0.5*pow(y-6.4,2.0)/pow(0.15,2.0)-0.5*pow(z+3.1,2.0)/pow(0.15,2.0))+-30.0*exp(-0.5*pow(x+1.4,2.0)/pow(0.15,2.0)-0.5*pow(y-6.4,2.0)/pow(0.15,2.0)-0.5*pow(z+2.9,2.0)/pow(0.15,2.0))+-30.0*exp(-0.5*pow(x-2.2,2.0)/pow(0.15,2.0)-0.5*pow(y-8.9,2.0)/pow(0.15,2.0)-0.5*pow(z+4.2,2.0)/pow(0.15,2.0))'
-    left      = ' 0.0'
-    right     = ' 5.0'
+    type = ParsedFunction
+    value = 'A*( exp(-0.5*(pow(x-0.8,2)+pow(y-6.4,2)+pow(z+3.1,2))/pow(w,2))
+                +exp(-0.5*(pow(x+1.4,2)+pow(y-6.4,2)+pow(z+2.9,2))/pow(w,2))
+                +exp(-0.5*(pow(x-2.2,2)+pow(y-8.9,2)+pow(z+4.2,2))/pow(w,2)))'
+    vars = '  A   w' # amplitude and spatial width of the Gaussians
+    vals = '-30 1.5'
   [../]
 []
 
