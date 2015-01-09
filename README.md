@@ -28,7 +28,7 @@ An example output for MOOSEs [`ex10.i`](examples/ex10.i) file reads
 
 ![examples/ex20.i.svg](https://rawgit.com/dasmy/MooseToGraphviz/master/examples/ex10.i.svg)
 
-For the slightly more complex [`ex20.i`](examples/ex20.i) file, the output reads
+For [`ex20.i`](examples/ex20.i), the output reads
 
 ![examples/ex20.i.svg](https://rawgit.com/dasmy/MooseToGraphviz/master/examples/ex20.i.svg)
 
@@ -46,7 +46,11 @@ For getting an overview of all MOOSE example files, you might want to call (this
     for file in ~/workspace/moose/examples/*/*.i; do ./ParseToGV.py $file | dot -Tsvg > ${file}.svg && open -a firefox ${file}.svg; done
 
 ### MultiApps
-MultiApps are also supported.
+MultiApps are also supported, the sub-App input files are parsed automatically (if they can be found by the script).
+You still only have to use
+
+    ./ParseToGV.py master_app.i
+
 A rather complex example is composed of [`delta_real_parameters.i`](examples/delta_real_parameters.i) and [`delta_real_parameters_sub.i`](examples/delta_real_parameters_sub.i) and yields
 
 ![examples/ex20.i.svg](https://rawgit.com/dasmy/MooseToGraphviz/master/examples/delta_real_parameters.i.svg)
