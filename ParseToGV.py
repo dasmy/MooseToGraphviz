@@ -8,6 +8,18 @@ globaloptions = {'includeparams' : True,   # if False, parameters are not shown 
                  'connection_ports' : True # if set to True, arrows point to entries in parameter tables. Otherwise, they point to the nodes
                  }
 
+styles = { 'Kernels'       : {'color' : '#5457b0', 'fontcolor' : '#5457b0' },
+           'Variables'     : {'color' : '#000cff', 'fontcolor' : '#000cff' },
+           'ScalarKernels' : {'color' : '#000077', 'fontcolor' : '#000077' },
+           'AuxKernels'    : {'color' : '#b07854', 'fontcolor' : '#b07854' },
+           'AuxVariables'  : {'color' : '#ff6500', 'fontcolor' : '#ff6500' },
+           'BCs'           : {'color' : '#ff00b6', 'fontcolor' : '#ff00b6' },
+           'ICs'           : {'color' : '#be409a', 'fontcolor' : '#be409a' },
+           'Materials'     : {'color' : '#aad76e', 'fontcolor' : '#aad76e' },
+           'Mesh'          : {'color' : '#0000ff', 'fontcolor' : '#0000ff' },
+         }
+
+
 globalpars=['layout=dot;size="20,20";rankdir=LR;splines=true;pad="0";ranksep="2.5";nodesep="0.3"',
             'node[shape=box3d];'
             'edge[color="#808080";fontcolor="#808080"];']
@@ -22,9 +34,11 @@ nodelist = []
 edgelist = []
 sub_list = {} # this list will be used to store the root nodes of all multiapps to simplify interconnection
 
+
 def tr(s):
   return s.replace('/','_').replace('.','_').replace(':','_')
-  
+
+
 def search_upwards(node, search_string):
   # we first search local trees and slowly traverse upwards until we found something
   # this looks inefficient but enforces matches to be as local as possible
@@ -34,7 +48,19 @@ def search_upwards(node, search_string):
     parent = parent.parent
     if nd != None:
       return nd, True
-  return None, False  
+  return None, False
+
+
+def add_edge(label, param, value, nd_from, nd_to, addedrow, style):
+  if globaloptions['connection_ports']:
+    if not addedrow: # avoid having multiple identical table rows in the case "displacements='dx dy dz'"
+      label += ['<TR><TD PORT="%s">%s</TD><TD>=</TD><TD>%s</TD></TR>' % (param, param, value[0:globaloptions['maxlen_value']])]
+      addedrow = True
+    edgelist.append('%s -> %s:%s[%s];' % (tr(nd_from.fullName()), tr(nd_to.fullName()), param, style ))
+  else:
+    edgelist.append('%s -> %s[headlabel="%s";%s];' % (tr(nd_from.fullName()), tr(nd_to.fullName()), param, style ))
+  return label, addedrow
+
 
 def ParseNodes(nodes, global_root):
   for node in nodes:
@@ -59,13 +85,7 @@ def ParseNodes(nodes, global_root):
             for nd_multi in sub_list[node.params['multi_app']]:
               nd, found = search_upwards(nd_multi, valpart)
               if found:
-                if globaloptions['connection_ports']:
-                  if not addedrow: # avoid having multiple identical table rows in the case "displacements='dx dy dz'"
-                    label += ['<TR><TD PORT="%s">%s</TD><TD>=</TD><TD>%s</TD></TR>' % (param, param, value[0:globaloptions['maxlen_value']])]
-                    addedrow = True
-                  edgelist.append('%s -> %s:%s[color="red"];' % (tr(nd.fullName()), tr(node.fullName()), param ))
-                else:
-                  edgelist.append('%s -> %s[headlabel="%s",color="red"];' % (tr(nd.fullName()), tr(node.fullName()), param ))
+                label, addedrow = add_edge(label, param, value, nd, node, addedrow, 'color="red"')
                 break
             continue
 
@@ -74,13 +94,7 @@ def ParseNodes(nodes, global_root):
         # this looks inefficient but enforces matches to be as local as possible
         nd, found = search_upwards(node, valpart)
         if found:
-          if globaloptions['connection_ports']:
-            if not addedrow: # avoid having multiple identical table rows in the case "displacements='dx dy dz'"
-              label += ['<TR><TD PORT="%s">%s</TD><TD>=</TD><TD>%s</TD></TR>' % (param, param, value[0:globaloptions['maxlen_value']])]
-              addedrow = True
-            edgelist.append('%s -> %s:%s[];' % (tr(nd.fullName()), tr(node.fullName()), param ))
-          else:
-            edgelist.append('%s -> %s[headlabel="%s"];' % (tr(nd.fullName()), tr(node.fullName()), param ))
+          label, addedrow = add_edge(label, param, value, nd, node, addedrow, '')
 
       if globaloptions['includeparams'] and not found and param != 'type':
           label += ['<TR><TD>%s</TD><TD>=</TD><TD>%s</TD></TR>' % (param, value[0:globaloptions['maxlen_value']])]
@@ -90,10 +104,14 @@ def ParseNodes(nodes, global_root):
     if len(node.children) > 0:
       if node.name != 'global_root':
         # no frame around global root node
-        nodelist.append("subgraph cluster_%s " % node.name)
-    
+        nodelist.append("subgraph cluster_%s" % node.name)
       nodelist.append('{')  
-      nodelist.append('%s[label=<%s>, shape=plaintext];' % (tr(node.fullName()), '\n'.join(label)))
+      nodelist.append('  label=<<B>%s</B>>;' % node.name)
+      if node.name in styles.keys():
+        style=''
+        for key, val in styles[node.name].iteritems():
+          style += '%s="%s";' % (key, val)
+        nodelist.append(style)
       # parse this node's children
       ParseNodes(node.children.values(), global_root)
       nodelist.append("}")
