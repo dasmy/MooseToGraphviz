@@ -54,3 +54,8 @@ You still only have to use
 A rather complex example is composed of [`delta_real_parameters.i`](examples/delta_real_parameters.i) and [`delta_real_parameters_sub.i`](examples/delta_real_parameters_sub.i) and yields
 
 ![examples/ex20.i.svg](https://rawgit.com/dasmy/MooseToGraphviz/master/examples/delta_real_parameters.i.svg)
+
+TODO
+----
+* Avoid pointing to self, e.g. in file:///Users/mathias/workspace/moose/modules/tensor_mechanics/tests/crystal_plasticity/crysp_user_object.i.svg .
+  There, a kernel/BC has the same name as the variable. Maybe always start the search at variables?
