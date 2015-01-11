@@ -59,3 +59,4 @@ TODO
 ----
 * Avoid pointing to self, e.g. in file:///Users/mathias/workspace/moose/modules/tensor_mechanics/tests/crystal_plasticity/crysp_user_object.i.svg .
   There, a kernel/BC has the same name as the variable. Maybe always start the search at variables?
+* Think about how to deal with comments
