@@ -136,30 +136,31 @@ def add_edge(nd_from, nd_to, **kwargs):
 
 
 def ParseConnections(node):
-  for param, value in node.params.iteritems():
-    # Try to connect regular parameters to respective blocks.
-    # We first search local trees and traverse upwards until we found something
-    # this looks inefficient but enforces matches to be as local as possible
-    # * we prevent pointing to ourselves because no block will ever reference itself (I assume)
-    # * we prefer starting our search in a Variables or AuxVariables block
-    # * special handling for Transfer blocks (search the respective file first, redirect arrows appropriately)
-    #   better reflect the data flow directions
-    search_start_list = [node]
-    if node.parent != None: # TODO: highlight transfer arrows
-      if node.parent.name == 'Transfers':
-        if (node.params['direction'] == 'to_multiapp'   and param == 'variable' ) or \
-           (node.params['direction'] == 'from_multiapp' and param == 'source_variable' ):
-          search_start_list = multiapp_nodes[node.params['multi_app']] + search_start_list
-    
-    for search_start in search_start_list:
-      nd_connected, found = search_upwards(search_start, value, excludenodes=[node.fullName()], prefernodenames=['Variables', 'AuxVariables'])
-      if found:
-        if param == 'variable':
-          # revert edge since this feels more natural
-          add_edge(node, nd_connected, port_from='%s_VALUE' % tr(param), labeltype='taillabel', label=param)
-        else:
-          add_edge(nd_connected, node, port_to='%s_PARAM' % tr(param), labeltype='headlabel', label=param)
-      break
+  for param, composite_value in node.params.iteritems():
+    for value in composite_value.split(' '): # treat "displacements='dx dy dz'" separately
+      # Try to connect regular parameters to respective blocks.
+      # We first search local trees and traverse upwards until we found something
+      # this looks inefficient but enforces matches to be as local as possible
+      # * we prevent pointing to ourselves because no block will ever reference itself (I assume)
+      # * we prefer starting our search in a Variables or AuxVariables block
+      # * special handling for Transfer blocks (search the respective file first, redirect arrows appropriately)
+      #   better reflect the data flow directions
+      search_start_list = [node]
+      if node.parent != None: # TODO: highlight transfer arrows
+        if node.parent.name == 'Transfers':
+          if (node.params['direction'] == 'to_multiapp'   and param == 'variable' ) or \
+             (node.params['direction'] == 'from_multiapp' and param == 'source_variable' ):
+            search_start_list = multiapp_nodes[node.params['multi_app']] + search_start_list
+
+      for search_start in search_start_list:
+        nd_connected, found = search_upwards(search_start, value, excludenodes=[node.fullName()], prefernodenames=['Variables', 'AuxVariables'])
+        if found:
+          if param == 'variable':
+            # revert edge since this feels more natural
+            add_edge(node, nd_connected, port_from='%s_VALUE' % tr(param), labeltype='taillabel', label=param)
+          else:
+            add_edge(nd_connected, node, port_to='%s_PARAM' % tr(param), labeltype='headlabel', label=param)
+        break
 
 
 def CreateParamTable(node):
