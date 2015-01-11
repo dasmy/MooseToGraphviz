@@ -11,6 +11,8 @@ gv_globalpars=['layout=dot;size="20,20";rankdir=LR;splines=true;pad="0";ranksep=
 globaloptions={'table_heading_style': 'BGCOLOR="#dddddd"', # HTML style for the parameter table headings
                'maxlen_param': 20, # maximum length (number of characters) for parameter names in parameter tables
                'maxlen_value': 35, # maximum length (number of characters) for parameter names in parameter tables
+               'connection_ports' : True,  # if set to True, arrows point to entries in parameter tables. Otherwise, they point to the nodes
+               'use_splines' : True # if True, splines are used for the edges. otherwise orthogonal connectors
               }
 
 styles = { 'Kernels'       : {'color' : '#5457b0', 'fontcolor' : '#5457b0' },
@@ -26,6 +28,13 @@ styles = { 'Kernels'       : {'color' : '#5457b0', 'fontcolor' : '#5457b0' },
            'Splits'        : {'color' : '#ff00ff', 'fontcolor' : '#ff00ff' },
          }
 
+
+# ports only work with splines...
+if globaloptions['use_splines'] or globaloptions['connection_ports']:
+  gv_globalpars[0] += ';splines=true'
+else:
+  gv_globalpars[0] += ';splines=ortho'
+ 
 
 nodelist = []
 edgelist = []
@@ -104,13 +113,18 @@ def ParseFile(filename, basepath):
 
 def add_edge(nd_from, nd_to, **kwargs):
   name_to = tr(nd_to.fullName())
-  if 'port_to' in kwargs.keys():
-    name_to += ':%s' % kwargs['port_to']
   name_from = tr(nd_from.fullName())
-  if 'port_from' in kwargs.keys():
-    name_from += ':%s' % kwargs['port_from']
 
-  edgelist.append('%s -> %s[];' % (name_from, name_to))
+  if globaloptions['connection_ports']:
+    if 'port_to' in kwargs.keys():
+      name_to += ':%s' % kwargs['port_to']
+    if 'port_from' in kwargs.keys():
+      name_from += ':%s' % kwargs['port_from']
+
+    edgelist.append('%s -> %s[];' % (name_from, name_to))
+  else:
+    edgelist.append('%s -> %s[%s="%s"];' % (name_from, name_to, kwargs['labeltype'], kwargs['label']))
+    
 
 
 def ParseConnections(node):
@@ -134,9 +148,9 @@ def ParseConnections(node):
       if found:
         if param == 'variable':
           # revert edge since this feels more natural
-          add_edge(node, nd_connected, port_from='%s_VALUE' % tr(param))
+          add_edge(node, nd_connected, port_from='%s_VALUE' % tr(param), labeltype='taillabel', label=param)
         else:
-          add_edge(nd_connected, node, port_to='%s_PARAM' % tr(param))
+          add_edge(nd_connected, node, port_to='%s_PARAM' % tr(param), labeltype='headlabel', label=param)
       break
 
 
@@ -164,6 +178,7 @@ def getStyle(nodename):
     for key, val in styles[nodename].iteritems():
       style += '%s="%s"' % (key, val)
   return style
+
 
 def ParseTree(node, parentstyle):
   global nodelist
