@@ -35,9 +35,9 @@
 <text text-anchor="start" x="1935.1" y="-3078.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#000cff">Variables </text>
 </g>
 <g id="clust6" class="cluster"><title>cluster_global_root_delta_real_parameters_sub_i_AuxKernels</title>
-<polygon fill="none" stroke="#5457b0" points="1401,-1756 1401,-2802 1774,-2802 1774,-1756 1401,-1756"/>
+<polygon fill="none" stroke="#b07854" points="1401,-1756 1401,-2802 1774,-2802 1774,-1756 1401,-1756"/>
 <polygon fill="#dddddd" stroke="none" points="1548.5,-2780 1548.5,-2798 1626.5,-2798 1626.5,-2780 1548.5,-2780"/>
-<text text-anchor="start" x="1549.6" y="-2785.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#5457b0">AuxKernels </text>
+<text text-anchor="start" x="1549.6" y="-2785.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#b07854">AuxKernels </text>
 </g>
 <g id="clust7" class="cluster"><title>cluster_global_root_delta_real_parameters_sub_i_AuxVariables</title>
 <polygon fill="none" stroke="#ff6500" points="1886,-1756 1886,-2784 2045,-2784 2045,-1756 1886,-1756"/>
@@ -90,9 +90,9 @@
 <text text-anchor="start" x="1110.6" y="-689.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#000cff">Variables </text>
 </g>
 <g id="clust17" class="cluster"><title>cluster_global_root_delta_real_parameters_i_AuxKernels</title>
-<polygon fill="none" stroke="#5457b0" points="495.5,-1028 495.5,-1558 868.5,-1558 868.5,-1028 495.5,-1028"/>
+<polygon fill="none" stroke="#b07854" points="495.5,-1028 495.5,-1558 868.5,-1558 868.5,-1028 495.5,-1028"/>
 <polygon fill="#dddddd" stroke="none" points="643,-1536 643,-1554 721,-1554 721,-1536 643,-1536"/>
-<text text-anchor="start" x="644.101" y="-1541.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#5457b0">AuxKernels </text>
+<text text-anchor="start" x="644.101" y="-1541.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#b07854">AuxKernels </text>
 </g>
 <g id="clust18" class="cluster"><title>cluster_global_root_delta_real_parameters_i_Postprocessors</title>
 <polygon fill="none" stroke="black" points="16,-639 16,-743 389,-743 389,-639 16,-639"/>
@@ -120,9 +120,9 @@
 <text text-anchor="start" x="665.861" y="-577.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#ff00b6">BCs </text>
 </g>
 <g id="clust23" class="cluster"><title>cluster_global_root_delta_real_parameters_i_ScalarKernels</title>
-<polygon fill="none" stroke="#5457b0" points="481,-602 481,-706 883,-706 883,-602 481,-602"/>
+<polygon fill="none" stroke="#000077" points="481,-602 481,-706 883,-706 883,-602 481,-602"/>
 <polygon fill="#dddddd" stroke="none" points="637,-684 637,-702 727,-702 727,-684 637,-684"/>
-<text text-anchor="start" x="638.665" y="-689.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#5457b0">ScalarKernels </text>
+<text text-anchor="start" x="638.665" y="-689.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#000077">ScalarKernels </text>
 </g>
 <!-- global_root_delta_real_parameters_sub_i_Executioner -->
 <g id="node1" class="node"><title>global_root_delta_real_parameters_sub_i_Executioner</title>
@@ -380,22 +380,22 @@
 </g>
 <!-- global_root_delta_real_parameters_sub_i_AuxKernels_auxdistance_LV_inner -->
 <g id="node9" class="node"><title>global_root_delta_real_parameters_sub_i_AuxKernels_auxdistance_LV_inner</title>
-<polygon fill="none" stroke="#5457b0" points="1765.5,-2648 1413.5,-2648 1409.5,-2644 1409.5,-2568 1761.5,-2568 1765.5,-2572 1765.5,-2648"/>
-<polyline fill="none" stroke="#5457b0" points="1761.5,-2644 1409.5,-2644 "/>
-<polyline fill="none" stroke="#5457b0" points="1761.5,-2644 1761.5,-2568 "/>
-<polyline fill="none" stroke="#5457b0" points="1761.5,-2644 1765.5,-2648 "/>
+<polygon fill="none" stroke="#b07854" points="1765.5,-2648 1413.5,-2648 1409.5,-2644 1409.5,-2568 1761.5,-2568 1765.5,-2572 1765.5,-2648"/>
+<polyline fill="none" stroke="#b07854" points="1761.5,-2644 1409.5,-2644 "/>
+<polyline fill="none" stroke="#b07854" points="1761.5,-2644 1761.5,-2568 "/>
+<polyline fill="none" stroke="#b07854" points="1761.5,-2644 1765.5,-2648 "/>
 <polygon fill="#dddddd" stroke="none" points="1417.5,-2626 1417.5,-2644 1757.5,-2644 1757.5,-2626 1417.5,-2626"/>
-<text text-anchor="start" x="1418.01" y="-2631.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#5457b0">auxdistance_LV_inner </text>
-<text text-anchor="start" x="1553.68" y="-2631.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">: VolumeNearestNodeDistanceAux</text>
-<text text-anchor="start" x="1474.46" y="-2612.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">variable</text>
-<text text-anchor="start" x="1592.55" y="-2612.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="1633.35" y="-2612.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">distance_LV_inner</text>
-<text text-anchor="start" x="1449.57" y="-2594.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">paired_boundary</text>
-<text text-anchor="start" x="1592.55" y="-2594.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="1650.84" y="-2594.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">ss_LV_inner</text>
-<text text-anchor="start" x="1481.45" y="-2576.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">block</text>
-<text text-anchor="start" x="1592.55" y="-2576.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="1680" y="-2576.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">all</text>
+<text text-anchor="start" x="1418.01" y="-2631.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#b07854">auxdistance_LV_inner </text>
+<text text-anchor="start" x="1553.68" y="-2631.4" font-family="Times,serif" font-size="14.00" fill="#b07854">: VolumeNearestNodeDistanceAux</text>
+<text text-anchor="start" x="1474.46" y="-2612.4" font-family="Times,serif" font-size="14.00" fill="#b07854">variable</text>
+<text text-anchor="start" x="1592.55" y="-2612.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="1633.35" y="-2612.4" font-family="Times,serif" font-size="14.00" fill="#b07854">distance_LV_inner</text>
+<text text-anchor="start" x="1449.57" y="-2594.4" font-family="Times,serif" font-size="14.00" fill="#b07854">paired_boundary</text>
+<text text-anchor="start" x="1592.55" y="-2594.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="1650.84" y="-2594.4" font-family="Times,serif" font-size="14.00" fill="#b07854">ss_LV_inner</text>
+<text text-anchor="start" x="1481.45" y="-2576.4" font-family="Times,serif" font-size="14.00" fill="#b07854">block</text>
+<text text-anchor="start" x="1592.55" y="-2576.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="1680" y="-2576.4" font-family="Times,serif" font-size="14.00" fill="#b07854">all</text>
 </g>
 <!-- global_root_delta_real_parameters_sub_i_AuxVariables_distance_LV_inner -->
 <g id="node30" class="node"><title>global_root_delta_real_parameters_sub_i_AuxVariables_distance_LV_inner</title>
@@ -419,22 +419,22 @@
 </g>
 <!-- global_root_delta_real_parameters_sub_i_AuxKernels_auxdistance_RV_inner -->
 <g id="node10" class="node"><title>global_root_delta_real_parameters_sub_i_AuxKernels_auxdistance_RV_inner</title>
-<polygon fill="none" stroke="#5457b0" points="1766,-2426 1413,-2426 1409,-2422 1409,-2346 1762,-2346 1766,-2350 1766,-2426"/>
-<polyline fill="none" stroke="#5457b0" points="1762,-2422 1409,-2422 "/>
-<polyline fill="none" stroke="#5457b0" points="1762,-2422 1762,-2346 "/>
-<polyline fill="none" stroke="#5457b0" points="1762,-2422 1766,-2426 "/>
+<polygon fill="none" stroke="#b07854" points="1766,-2426 1413,-2426 1409,-2422 1409,-2346 1762,-2346 1766,-2350 1766,-2426"/>
+<polyline fill="none" stroke="#b07854" points="1762,-2422 1409,-2422 "/>
+<polyline fill="none" stroke="#b07854" points="1762,-2422 1762,-2346 "/>
+<polyline fill="none" stroke="#b07854" points="1762,-2422 1766,-2426 "/>
 <polygon fill="#dddddd" stroke="none" points="1417.5,-2404 1417.5,-2422 1758.5,-2422 1758.5,-2404 1417.5,-2404"/>
-<text text-anchor="start" x="1418.12" y="-2409.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#5457b0">auxdistance_RV_inner </text>
-<text text-anchor="start" x="1554.58" y="-2409.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">: VolumeNearestNodeDistanceAux</text>
-<text text-anchor="start" x="1474.46" y="-2390.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">variable</text>
-<text text-anchor="start" x="1592.55" y="-2390.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="1633.46" y="-2390.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">distance_RV_inner</text>
-<text text-anchor="start" x="1449.57" y="-2372.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">paired_boundary</text>
-<text text-anchor="start" x="1592.55" y="-2372.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="1650.95" y="-2372.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">ss_RV_inner</text>
-<text text-anchor="start" x="1481.45" y="-2354.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">block</text>
-<text text-anchor="start" x="1592.55" y="-2354.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="1680.5" y="-2354.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">all</text>
+<text text-anchor="start" x="1418.12" y="-2409.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#b07854">auxdistance_RV_inner </text>
+<text text-anchor="start" x="1554.58" y="-2409.4" font-family="Times,serif" font-size="14.00" fill="#b07854">: VolumeNearestNodeDistanceAux</text>
+<text text-anchor="start" x="1474.46" y="-2390.4" font-family="Times,serif" font-size="14.00" fill="#b07854">variable</text>
+<text text-anchor="start" x="1592.55" y="-2390.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="1633.46" y="-2390.4" font-family="Times,serif" font-size="14.00" fill="#b07854">distance_RV_inner</text>
+<text text-anchor="start" x="1449.57" y="-2372.4" font-family="Times,serif" font-size="14.00" fill="#b07854">paired_boundary</text>
+<text text-anchor="start" x="1592.55" y="-2372.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="1650.95" y="-2372.4" font-family="Times,serif" font-size="14.00" fill="#b07854">ss_RV_inner</text>
+<text text-anchor="start" x="1481.45" y="-2354.4" font-family="Times,serif" font-size="14.00" fill="#b07854">block</text>
+<text text-anchor="start" x="1592.55" y="-2354.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="1680.5" y="-2354.4" font-family="Times,serif" font-size="14.00" fill="#b07854">all</text>
 </g>
 <!-- global_root_delta_real_parameters_sub_i_AuxVariables_distance_RV_inner -->
 <g id="node19" class="node"><title>global_root_delta_real_parameters_sub_i_AuxVariables_distance_RV_inner</title>
@@ -458,25 +458,25 @@
 </g>
 <!-- global_root_delta_real_parameters_sub_i_AuxKernels_auxgate_v -->
 <g id="node11" class="node"><title>global_root_delta_real_parameters_sub_i_AuxKernels_auxgate_v</title>
-<polygon fill="none" stroke="#5457b0" points="1699.5,-2768 1479.5,-2768 1475.5,-2764 1475.5,-2670 1695.5,-2670 1699.5,-2674 1699.5,-2768"/>
-<polyline fill="none" stroke="#5457b0" points="1695.5,-2764 1475.5,-2764 "/>
-<polyline fill="none" stroke="#5457b0" points="1695.5,-2764 1695.5,-2670 "/>
-<polyline fill="none" stroke="#5457b0" points="1695.5,-2764 1699.5,-2768 "/>
+<polygon fill="none" stroke="#b07854" points="1699.5,-2768 1479.5,-2768 1475.5,-2764 1475.5,-2670 1695.5,-2670 1699.5,-2674 1699.5,-2768"/>
+<polyline fill="none" stroke="#b07854" points="1695.5,-2764 1475.5,-2764 "/>
+<polyline fill="none" stroke="#b07854" points="1695.5,-2764 1695.5,-2670 "/>
+<polyline fill="none" stroke="#b07854" points="1695.5,-2764 1699.5,-2768 "/>
 <polygon fill="#dddddd" stroke="none" points="1483.5,-2746 1483.5,-2764 1691.5,-2764 1691.5,-2746 1483.5,-2746"/>
-<text text-anchor="start" x="1484.48" y="-2751.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#5457b0">auxgate_v </text>
-<text text-anchor="start" x="1550.18" y="-2751.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">: MaterialStdVectorAux</text>
-<text text-anchor="start" x="1512.96" y="-2732.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">variable</text>
-<text text-anchor="start" x="1602.05" y="-2732.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="1639.34" y="-2732.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">gate_v</text>
-<text text-anchor="start" x="1519.95" y="-2714.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">index</text>
-<text text-anchor="start" x="1602.05" y="-2714.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="1654.5" y="-2714.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">1</text>
-<text text-anchor="start" x="1511.79" y="-2696.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">property</text>
-<text text-anchor="start" x="1602.05" y="-2696.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="1643.62" y="-2696.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">gates</text>
-<text text-anchor="start" x="1519.95" y="-2678.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">block</text>
-<text text-anchor="start" x="1602.05" y="-2678.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="1651" y="-2678.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">all</text>
+<text text-anchor="start" x="1484.48" y="-2751.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#b07854">auxgate_v </text>
+<text text-anchor="start" x="1550.18" y="-2751.4" font-family="Times,serif" font-size="14.00" fill="#b07854">: MaterialStdVectorAux</text>
+<text text-anchor="start" x="1512.96" y="-2732.4" font-family="Times,serif" font-size="14.00" fill="#b07854">variable</text>
+<text text-anchor="start" x="1602.05" y="-2732.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="1639.34" y="-2732.4" font-family="Times,serif" font-size="14.00" fill="#b07854">gate_v</text>
+<text text-anchor="start" x="1519.95" y="-2714.4" font-family="Times,serif" font-size="14.00" fill="#b07854">index</text>
+<text text-anchor="start" x="1602.05" y="-2714.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="1654.5" y="-2714.4" font-family="Times,serif" font-size="14.00" fill="#b07854">1</text>
+<text text-anchor="start" x="1511.79" y="-2696.4" font-family="Times,serif" font-size="14.00" fill="#b07854">property</text>
+<text text-anchor="start" x="1602.05" y="-2696.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="1643.62" y="-2696.4" font-family="Times,serif" font-size="14.00" fill="#b07854">gates</text>
+<text text-anchor="start" x="1519.95" y="-2678.4" font-family="Times,serif" font-size="14.00" fill="#b07854">block</text>
+<text text-anchor="start" x="1602.05" y="-2678.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="1651" y="-2678.4" font-family="Times,serif" font-size="14.00" fill="#b07854">all</text>
 </g>
 <!-- global_root_delta_real_parameters_sub_i_AuxVariables_gate_v -->
 <g id="node22" class="node"><title>global_root_delta_real_parameters_sub_i_AuxVariables_gate_v</title>
@@ -500,22 +500,22 @@
 </g>
 <!-- global_root_delta_real_parameters_sub_i_AuxKernels_auxdistance_outer -->
 <g id="node12" class="node"><title>global_root_delta_real_parameters_sub_i_AuxKernels_auxdistance_outer</title>
-<polygon fill="none" stroke="#5457b0" points="1753,-2324 1426,-2324 1422,-2320 1422,-2244 1749,-2244 1753,-2248 1753,-2324"/>
-<polyline fill="none" stroke="#5457b0" points="1749,-2320 1422,-2320 "/>
-<polyline fill="none" stroke="#5457b0" points="1749,-2320 1749,-2244 "/>
-<polyline fill="none" stroke="#5457b0" points="1749,-2320 1753,-2324 "/>
+<polygon fill="none" stroke="#b07854" points="1753,-2324 1426,-2324 1422,-2320 1422,-2244 1749,-2244 1753,-2248 1753,-2324"/>
+<polyline fill="none" stroke="#b07854" points="1749,-2320 1422,-2320 "/>
+<polyline fill="none" stroke="#b07854" points="1749,-2320 1749,-2244 "/>
+<polyline fill="none" stroke="#b07854" points="1749,-2320 1753,-2324 "/>
 <polygon fill="#dddddd" stroke="none" points="1430.5,-2302 1430.5,-2320 1745.5,-2320 1745.5,-2302 1430.5,-2302"/>
-<text text-anchor="start" x="1431.34" y="-2307.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#5457b0">auxdistance_outer </text>
-<text text-anchor="start" x="1541.35" y="-2307.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">: VolumeNearestNodeDistanceAux</text>
-<text text-anchor="start" x="1487.46" y="-2288.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">variable</text>
-<text text-anchor="start" x="1606.05" y="-2288.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="1647.18" y="-2288.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">distance_outer</text>
-<text text-anchor="start" x="1462.57" y="-2270.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">paired_boundary</text>
-<text text-anchor="start" x="1606.05" y="-2270.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="1664.67" y="-2270.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">ss_outer</text>
-<text text-anchor="start" x="1494.45" y="-2252.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">block</text>
-<text text-anchor="start" x="1606.05" y="-2252.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="1681" y="-2252.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">all</text>
+<text text-anchor="start" x="1431.34" y="-2307.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#b07854">auxdistance_outer </text>
+<text text-anchor="start" x="1541.35" y="-2307.4" font-family="Times,serif" font-size="14.00" fill="#b07854">: VolumeNearestNodeDistanceAux</text>
+<text text-anchor="start" x="1487.46" y="-2288.4" font-family="Times,serif" font-size="14.00" fill="#b07854">variable</text>
+<text text-anchor="start" x="1606.05" y="-2288.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="1647.18" y="-2288.4" font-family="Times,serif" font-size="14.00" fill="#b07854">distance_outer</text>
+<text text-anchor="start" x="1462.57" y="-2270.4" font-family="Times,serif" font-size="14.00" fill="#b07854">paired_boundary</text>
+<text text-anchor="start" x="1606.05" y="-2270.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="1664.67" y="-2270.4" font-family="Times,serif" font-size="14.00" fill="#b07854">ss_outer</text>
+<text text-anchor="start" x="1494.45" y="-2252.4" font-family="Times,serif" font-size="14.00" fill="#b07854">block</text>
+<text text-anchor="start" x="1606.05" y="-2252.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="1681" y="-2252.4" font-family="Times,serif" font-size="14.00" fill="#b07854">all</text>
 </g>
 <!-- global_root_delta_real_parameters_sub_i_AuxVariables_distance_outer -->
 <g id="node29" class="node"><title>global_root_delta_real_parameters_sub_i_AuxVariables_distance_outer</title>
@@ -539,25 +539,25 @@
 </g>
 <!-- global_root_delta_real_parameters_sub_i_AuxKernels_auxgate_x -->
 <g id="node13" class="node"><title>global_root_delta_real_parameters_sub_i_AuxKernels_auxgate_x</title>
-<polygon fill="none" stroke="#5457b0" points="1699.5,-2222 1479.5,-2222 1475.5,-2218 1475.5,-2124 1695.5,-2124 1699.5,-2128 1699.5,-2222"/>
-<polyline fill="none" stroke="#5457b0" points="1695.5,-2218 1475.5,-2218 "/>
-<polyline fill="none" stroke="#5457b0" points="1695.5,-2218 1695.5,-2124 "/>
-<polyline fill="none" stroke="#5457b0" points="1695.5,-2218 1699.5,-2222 "/>
+<polygon fill="none" stroke="#b07854" points="1699.5,-2222 1479.5,-2222 1475.5,-2218 1475.5,-2124 1695.5,-2124 1699.5,-2128 1699.5,-2222"/>
+<polyline fill="none" stroke="#b07854" points="1695.5,-2218 1475.5,-2218 "/>
+<polyline fill="none" stroke="#b07854" points="1695.5,-2218 1695.5,-2124 "/>
+<polyline fill="none" stroke="#b07854" points="1695.5,-2218 1699.5,-2222 "/>
 <polygon fill="#dddddd" stroke="none" points="1483.5,-2200 1483.5,-2218 1691.5,-2218 1691.5,-2200 1483.5,-2200"/>
-<text text-anchor="start" x="1484.48" y="-2205.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#5457b0">auxgate_x </text>
-<text text-anchor="start" x="1550.18" y="-2205.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">: MaterialStdVectorAux</text>
-<text text-anchor="start" x="1512.96" y="-2186.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">variable</text>
-<text text-anchor="start" x="1602.05" y="-2186.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="1639.34" y="-2186.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">gate_x</text>
-<text text-anchor="start" x="1519.95" y="-2168.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">index</text>
-<text text-anchor="start" x="1602.05" y="-2168.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="1654.5" y="-2168.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">4</text>
-<text text-anchor="start" x="1511.79" y="-2150.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">property</text>
-<text text-anchor="start" x="1602.05" y="-2150.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="1643.62" y="-2150.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">gates</text>
-<text text-anchor="start" x="1519.95" y="-2132.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">block</text>
-<text text-anchor="start" x="1602.05" y="-2132.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="1651" y="-2132.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">all</text>
+<text text-anchor="start" x="1484.48" y="-2205.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#b07854">auxgate_x </text>
+<text text-anchor="start" x="1550.18" y="-2205.4" font-family="Times,serif" font-size="14.00" fill="#b07854">: MaterialStdVectorAux</text>
+<text text-anchor="start" x="1512.96" y="-2186.4" font-family="Times,serif" font-size="14.00" fill="#b07854">variable</text>
+<text text-anchor="start" x="1602.05" y="-2186.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="1639.34" y="-2186.4" font-family="Times,serif" font-size="14.00" fill="#b07854">gate_x</text>
+<text text-anchor="start" x="1519.95" y="-2168.4" font-family="Times,serif" font-size="14.00" fill="#b07854">index</text>
+<text text-anchor="start" x="1602.05" y="-2168.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="1654.5" y="-2168.4" font-family="Times,serif" font-size="14.00" fill="#b07854">4</text>
+<text text-anchor="start" x="1511.79" y="-2150.4" font-family="Times,serif" font-size="14.00" fill="#b07854">property</text>
+<text text-anchor="start" x="1602.05" y="-2150.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="1643.62" y="-2150.4" font-family="Times,serif" font-size="14.00" fill="#b07854">gates</text>
+<text text-anchor="start" x="1519.95" y="-2132.4" font-family="Times,serif" font-size="14.00" fill="#b07854">block</text>
+<text text-anchor="start" x="1602.05" y="-2132.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="1651" y="-2132.4" font-family="Times,serif" font-size="14.00" fill="#b07854">all</text>
 </g>
 <!-- global_root_delta_real_parameters_sub_i_AuxVariables_gate_x -->
 <g id="node20" class="node"><title>global_root_delta_real_parameters_sub_i_AuxVariables_gate_x</title>
@@ -581,25 +581,25 @@
 </g>
 <!-- global_root_delta_real_parameters_sub_i_AuxKernels_auxgate_to -->
 <g id="node14" class="node"><title>global_root_delta_real_parameters_sub_i_AuxKernels_auxgate_to</title>
-<polygon fill="none" stroke="#5457b0" points="1701,-2102 1478,-2102 1474,-2098 1474,-2004 1697,-2004 1701,-2008 1701,-2102"/>
-<polyline fill="none" stroke="#5457b0" points="1697,-2098 1474,-2098 "/>
-<polyline fill="none" stroke="#5457b0" points="1697,-2098 1697,-2004 "/>
-<polyline fill="none" stroke="#5457b0" points="1697,-2098 1701,-2102 "/>
+<polygon fill="none" stroke="#b07854" points="1701,-2102 1478,-2102 1474,-2098 1474,-2004 1697,-2004 1701,-2008 1701,-2102"/>
+<polyline fill="none" stroke="#b07854" points="1697,-2098 1474,-2098 "/>
+<polyline fill="none" stroke="#b07854" points="1697,-2098 1697,-2004 "/>
+<polyline fill="none" stroke="#b07854" points="1697,-2098 1701,-2102 "/>
 <polygon fill="#dddddd" stroke="none" points="1482.5,-2080 1482.5,-2098 1693.5,-2098 1693.5,-2080 1482.5,-2080"/>
-<text text-anchor="start" x="1483.04" y="-2085.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#5457b0">auxgate_to </text>
-<text text-anchor="start" x="1552.62" y="-2085.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">: MaterialStdVectorAux</text>
-<text text-anchor="start" x="1511.96" y="-2066.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">variable</text>
-<text text-anchor="start" x="1600.55" y="-2066.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="1637.39" y="-2066.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">gate_to</text>
-<text text-anchor="start" x="1518.95" y="-2048.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">index</text>
-<text text-anchor="start" x="1600.55" y="-2048.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="1654.5" y="-2048.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">3</text>
-<text text-anchor="start" x="1510.79" y="-2030.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">property</text>
-<text text-anchor="start" x="1600.55" y="-2030.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="1643.62" y="-2030.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">gates</text>
-<text text-anchor="start" x="1518.95" y="-2012.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">block</text>
-<text text-anchor="start" x="1600.55" y="-2012.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="1651" y="-2012.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">all</text>
+<text text-anchor="start" x="1483.04" y="-2085.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#b07854">auxgate_to </text>
+<text text-anchor="start" x="1552.62" y="-2085.4" font-family="Times,serif" font-size="14.00" fill="#b07854">: MaterialStdVectorAux</text>
+<text text-anchor="start" x="1511.96" y="-2066.4" font-family="Times,serif" font-size="14.00" fill="#b07854">variable</text>
+<text text-anchor="start" x="1600.55" y="-2066.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="1637.39" y="-2066.4" font-family="Times,serif" font-size="14.00" fill="#b07854">gate_to</text>
+<text text-anchor="start" x="1518.95" y="-2048.4" font-family="Times,serif" font-size="14.00" fill="#b07854">index</text>
+<text text-anchor="start" x="1600.55" y="-2048.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="1654.5" y="-2048.4" font-family="Times,serif" font-size="14.00" fill="#b07854">3</text>
+<text text-anchor="start" x="1510.79" y="-2030.4" font-family="Times,serif" font-size="14.00" fill="#b07854">property</text>
+<text text-anchor="start" x="1600.55" y="-2030.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="1643.62" y="-2030.4" font-family="Times,serif" font-size="14.00" fill="#b07854">gates</text>
+<text text-anchor="start" x="1518.95" y="-2012.4" font-family="Times,serif" font-size="14.00" fill="#b07854">block</text>
+<text text-anchor="start" x="1600.55" y="-2012.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="1651" y="-2012.4" font-family="Times,serif" font-size="14.00" fill="#b07854">all</text>
 </g>
 <!-- global_root_delta_real_parameters_sub_i_AuxVariables_gate_to -->
 <g id="node24" class="node"><title>global_root_delta_real_parameters_sub_i_AuxVariables_gate_to</title>
@@ -623,25 +623,25 @@
 </g>
 <!-- global_root_delta_real_parameters_sub_i_AuxKernels_auxthickness -->
 <g id="node15" class="node"><title>global_root_delta_real_parameters_sub_i_AuxKernels_auxthickness</title>
-<polygon fill="none" stroke="#5457b0" points="1733,-2546 1446,-2546 1442,-2542 1442,-2448 1729,-2448 1733,-2452 1733,-2546"/>
-<polyline fill="none" stroke="#5457b0" points="1729,-2542 1442,-2542 "/>
-<polyline fill="none" stroke="#5457b0" points="1729,-2542 1729,-2448 "/>
-<polyline fill="none" stroke="#5457b0" points="1729,-2542 1733,-2546 "/>
+<polygon fill="none" stroke="#b07854" points="1733,-2546 1446,-2546 1442,-2542 1442,-2448 1729,-2448 1733,-2452 1733,-2546"/>
+<polyline fill="none" stroke="#b07854" points="1729,-2542 1442,-2542 "/>
+<polyline fill="none" stroke="#b07854" points="1729,-2542 1729,-2448 "/>
+<polyline fill="none" stroke="#b07854" points="1729,-2542 1733,-2546 "/>
 <polygon fill="#dddddd" stroke="none" points="1450.5,-2524 1450.5,-2542 1725.5,-2542 1725.5,-2524 1450.5,-2524"/>
-<text text-anchor="start" x="1451.17" y="-2529.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#5457b0">auxthickness </text>
-<text text-anchor="start" x="1531.64" y="-2529.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">: CardiacThicknessParameterAux</text>
-<text text-anchor="start" x="1492.46" y="-2510.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">variable</text>
-<text text-anchor="start" x="1585.05" y="-2510.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="1604.47" y="-2510.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">thickness_parameter</text>
-<text text-anchor="start" x="1460.96" y="-2492.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">distance_RV_inner</text>
-<text text-anchor="start" x="1585.05" y="-2492.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="1607.96" y="-2492.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">distance_RV_inner</text>
-<text text-anchor="start" x="1461.35" y="-2474.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">distance_LV_inner</text>
-<text text-anchor="start" x="1585.05" y="-2474.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="1608.35" y="-2474.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">distance_LV_inner</text>
-<text text-anchor="start" x="1474.18" y="-2456.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">distance_outer</text>
-<text text-anchor="start" x="1585.05" y="-2456.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="1621.18" y="-2456.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">distance_outer</text>
+<text text-anchor="start" x="1451.17" y="-2529.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#b07854">auxthickness </text>
+<text text-anchor="start" x="1531.64" y="-2529.4" font-family="Times,serif" font-size="14.00" fill="#b07854">: CardiacThicknessParameterAux</text>
+<text text-anchor="start" x="1492.46" y="-2510.4" font-family="Times,serif" font-size="14.00" fill="#b07854">variable</text>
+<text text-anchor="start" x="1585.05" y="-2510.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="1604.47" y="-2510.4" font-family="Times,serif" font-size="14.00" fill="#b07854">thickness_parameter</text>
+<text text-anchor="start" x="1460.96" y="-2492.4" font-family="Times,serif" font-size="14.00" fill="#b07854">distance_RV_inner</text>
+<text text-anchor="start" x="1585.05" y="-2492.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="1607.96" y="-2492.4" font-family="Times,serif" font-size="14.00" fill="#b07854">distance_RV_inner</text>
+<text text-anchor="start" x="1461.35" y="-2474.4" font-family="Times,serif" font-size="14.00" fill="#b07854">distance_LV_inner</text>
+<text text-anchor="start" x="1585.05" y="-2474.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="1608.35" y="-2474.4" font-family="Times,serif" font-size="14.00" fill="#b07854">distance_LV_inner</text>
+<text text-anchor="start" x="1474.18" y="-2456.4" font-family="Times,serif" font-size="14.00" fill="#b07854">distance_outer</text>
+<text text-anchor="start" x="1585.05" y="-2456.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="1621.18" y="-2456.4" font-family="Times,serif" font-size="14.00" fill="#b07854">distance_outer</text>
 </g>
 <!-- global_root_delta_real_parameters_sub_i_AuxVariables_thickness_parameter -->
 <g id="node21" class="node"><title>global_root_delta_real_parameters_sub_i_AuxVariables_thickness_parameter</title>
@@ -665,25 +665,25 @@
 </g>
 <!-- global_root_delta_real_parameters_sub_i_AuxKernels_auxgate_f -->
 <g id="node16" class="node"><title>global_root_delta_real_parameters_sub_i_AuxKernels_auxgate_f</title>
-<polygon fill="none" stroke="#5457b0" points="1698,-1982 1481,-1982 1477,-1978 1477,-1884 1694,-1884 1698,-1888 1698,-1982"/>
-<polyline fill="none" stroke="#5457b0" points="1694,-1978 1477,-1978 "/>
-<polyline fill="none" stroke="#5457b0" points="1694,-1978 1694,-1884 "/>
-<polyline fill="none" stroke="#5457b0" points="1694,-1978 1698,-1982 "/>
+<polygon fill="none" stroke="#b07854" points="1698,-1982 1481,-1982 1477,-1978 1477,-1884 1694,-1884 1698,-1888 1698,-1982"/>
+<polyline fill="none" stroke="#b07854" points="1694,-1978 1477,-1978 "/>
+<polyline fill="none" stroke="#b07854" points="1694,-1978 1694,-1884 "/>
+<polyline fill="none" stroke="#b07854" points="1694,-1978 1698,-1982 "/>
 <polygon fill="#dddddd" stroke="none" points="1485.5,-1960 1485.5,-1978 1690.5,-1978 1690.5,-1960 1485.5,-1960"/>
-<text text-anchor="start" x="1486.15" y="-1965.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#5457b0">auxgate_f </text>
-<text text-anchor="start" x="1549.51" y="-1965.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">: MaterialStdVectorAux</text>
-<text text-anchor="start" x="1514.96" y="-1946.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">variable</text>
-<text text-anchor="start" x="1604.05" y="-1946.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="1641.01" y="-1946.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">gate_f</text>
-<text text-anchor="start" x="1521.95" y="-1928.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">index</text>
-<text text-anchor="start" x="1604.05" y="-1928.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="1655" y="-1928.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">2</text>
-<text text-anchor="start" x="1513.79" y="-1910.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">property</text>
-<text text-anchor="start" x="1604.05" y="-1910.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="1644.12" y="-1910.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">gates</text>
-<text text-anchor="start" x="1521.95" y="-1892.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">block</text>
-<text text-anchor="start" x="1604.05" y="-1892.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="1651.5" y="-1892.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">all</text>
+<text text-anchor="start" x="1486.15" y="-1965.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#b07854">auxgate_f </text>
+<text text-anchor="start" x="1549.51" y="-1965.4" font-family="Times,serif" font-size="14.00" fill="#b07854">: MaterialStdVectorAux</text>
+<text text-anchor="start" x="1514.96" y="-1946.4" font-family="Times,serif" font-size="14.00" fill="#b07854">variable</text>
+<text text-anchor="start" x="1604.05" y="-1946.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="1641.01" y="-1946.4" font-family="Times,serif" font-size="14.00" fill="#b07854">gate_f</text>
+<text text-anchor="start" x="1521.95" y="-1928.4" font-family="Times,serif" font-size="14.00" fill="#b07854">index</text>
+<text text-anchor="start" x="1604.05" y="-1928.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="1655" y="-1928.4" font-family="Times,serif" font-size="14.00" fill="#b07854">2</text>
+<text text-anchor="start" x="1513.79" y="-1910.4" font-family="Times,serif" font-size="14.00" fill="#b07854">property</text>
+<text text-anchor="start" x="1604.05" y="-1910.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="1644.12" y="-1910.4" font-family="Times,serif" font-size="14.00" fill="#b07854">gates</text>
+<text text-anchor="start" x="1521.95" y="-1892.4" font-family="Times,serif" font-size="14.00" fill="#b07854">block</text>
+<text text-anchor="start" x="1604.05" y="-1892.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="1651.5" y="-1892.4" font-family="Times,serif" font-size="14.00" fill="#b07854">all</text>
 </g>
 <!-- global_root_delta_real_parameters_sub_i_AuxVariables_gate_f -->
 <g id="node28" class="node"><title>global_root_delta_real_parameters_sub_i_AuxVariables_gate_f</title>
@@ -707,25 +707,25 @@
 </g>
 <!-- global_root_delta_real_parameters_sub_i_AuxKernels_auxgate_m -->
 <g id="node17" class="node"><title>global_root_delta_real_parameters_sub_i_AuxKernels_auxgate_m</title>
-<polygon fill="none" stroke="#5457b0" points="1701,-1862 1478,-1862 1474,-1858 1474,-1764 1697,-1764 1701,-1768 1701,-1862"/>
-<polyline fill="none" stroke="#5457b0" points="1697,-1858 1474,-1858 "/>
-<polyline fill="none" stroke="#5457b0" points="1697,-1858 1697,-1764 "/>
-<polyline fill="none" stroke="#5457b0" points="1697,-1858 1701,-1862 "/>
+<polygon fill="none" stroke="#b07854" points="1701,-1862 1478,-1862 1474,-1858 1474,-1764 1697,-1764 1701,-1768 1701,-1862"/>
+<polyline fill="none" stroke="#b07854" points="1697,-1858 1474,-1858 "/>
+<polyline fill="none" stroke="#b07854" points="1697,-1858 1697,-1764 "/>
+<polyline fill="none" stroke="#b07854" points="1697,-1858 1701,-1862 "/>
 <polygon fill="#dddddd" stroke="none" points="1482.5,-1840 1482.5,-1858 1693.5,-1858 1693.5,-1840 1482.5,-1840"/>
-<text text-anchor="start" x="1483.04" y="-1845.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#5457b0">auxgate_m </text>
-<text text-anchor="start" x="1552.62" y="-1845.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">: MaterialStdVectorAux</text>
-<text text-anchor="start" x="1511.96" y="-1826.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">variable</text>
-<text text-anchor="start" x="1600.55" y="-1826.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="1637.39" y="-1826.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">gate_m</text>
-<text text-anchor="start" x="1518.95" y="-1808.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">index</text>
-<text text-anchor="start" x="1600.55" y="-1808.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="1654.5" y="-1808.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">0</text>
-<text text-anchor="start" x="1510.79" y="-1790.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">property</text>
-<text text-anchor="start" x="1600.55" y="-1790.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="1643.62" y="-1790.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">gates</text>
-<text text-anchor="start" x="1518.95" y="-1772.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">block</text>
-<text text-anchor="start" x="1600.55" y="-1772.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="1651" y="-1772.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">all</text>
+<text text-anchor="start" x="1483.04" y="-1845.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#b07854">auxgate_m </text>
+<text text-anchor="start" x="1552.62" y="-1845.4" font-family="Times,serif" font-size="14.00" fill="#b07854">: MaterialStdVectorAux</text>
+<text text-anchor="start" x="1511.96" y="-1826.4" font-family="Times,serif" font-size="14.00" fill="#b07854">variable</text>
+<text text-anchor="start" x="1600.55" y="-1826.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="1637.39" y="-1826.4" font-family="Times,serif" font-size="14.00" fill="#b07854">gate_m</text>
+<text text-anchor="start" x="1518.95" y="-1808.4" font-family="Times,serif" font-size="14.00" fill="#b07854">index</text>
+<text text-anchor="start" x="1600.55" y="-1808.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="1654.5" y="-1808.4" font-family="Times,serif" font-size="14.00" fill="#b07854">0</text>
+<text text-anchor="start" x="1510.79" y="-1790.4" font-family="Times,serif" font-size="14.00" fill="#b07854">property</text>
+<text text-anchor="start" x="1600.55" y="-1790.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="1643.62" y="-1790.4" font-family="Times,serif" font-size="14.00" fill="#b07854">gates</text>
+<text text-anchor="start" x="1518.95" y="-1772.4" font-family="Times,serif" font-size="14.00" fill="#b07854">block</text>
+<text text-anchor="start" x="1600.55" y="-1772.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="1651" y="-1772.4" font-family="Times,serif" font-size="14.00" fill="#b07854">all</text>
 </g>
 <!-- global_root_delta_real_parameters_sub_i_AuxVariables_gate_m -->
 <g id="node27" class="node"><title>global_root_delta_real_parameters_sub_i_AuxVariables_gate_m</title>
@@ -1530,22 +1530,22 @@
 </g>
 <!-- global_root_delta_real_parameters_i_AuxKernels_auxdistance_LV_inner -->
 <g id="node50" class="node"><title>global_root_delta_real_parameters_i_AuxKernels_auxdistance_LV_inner</title>
-<polygon fill="none" stroke="#5457b0" points="860,-1302 508,-1302 504,-1298 504,-1222 856,-1222 860,-1226 860,-1302"/>
-<polyline fill="none" stroke="#5457b0" points="856,-1298 504,-1298 "/>
-<polyline fill="none" stroke="#5457b0" points="856,-1298 856,-1222 "/>
-<polyline fill="none" stroke="#5457b0" points="856,-1298 860,-1302 "/>
+<polygon fill="none" stroke="#b07854" points="860,-1302 508,-1302 504,-1298 504,-1222 856,-1222 860,-1226 860,-1302"/>
+<polyline fill="none" stroke="#b07854" points="856,-1298 504,-1298 "/>
+<polyline fill="none" stroke="#b07854" points="856,-1298 856,-1222 "/>
+<polyline fill="none" stroke="#b07854" points="856,-1298 860,-1302 "/>
 <polygon fill="#dddddd" stroke="none" points="512,-1280 512,-1298 852,-1298 852,-1280 512,-1280"/>
-<text text-anchor="start" x="512.513" y="-1285.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#5457b0">auxdistance_LV_inner </text>
-<text text-anchor="start" x="648.183" y="-1285.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">: VolumeNearestNodeDistanceAux</text>
-<text text-anchor="start" x="568.957" y="-1266.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">variable</text>
-<text text-anchor="start" x="687.053" y="-1266.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="727.853" y="-1266.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">distance_LV_inner</text>
-<text text-anchor="start" x="544.072" y="-1248.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">paired_boundary</text>
-<text text-anchor="start" x="687.053" y="-1248.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="745.343" y="-1248.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">ss_LV_inner</text>
-<text text-anchor="start" x="575.947" y="-1230.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">block</text>
-<text text-anchor="start" x="687.053" y="-1230.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="774.502" y="-1230.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">all</text>
+<text text-anchor="start" x="512.513" y="-1285.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#b07854">auxdistance_LV_inner </text>
+<text text-anchor="start" x="648.183" y="-1285.4" font-family="Times,serif" font-size="14.00" fill="#b07854">: VolumeNearestNodeDistanceAux</text>
+<text text-anchor="start" x="568.957" y="-1266.4" font-family="Times,serif" font-size="14.00" fill="#b07854">variable</text>
+<text text-anchor="start" x="687.053" y="-1266.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="727.853" y="-1266.4" font-family="Times,serif" font-size="14.00" fill="#b07854">distance_LV_inner</text>
+<text text-anchor="start" x="544.072" y="-1248.4" font-family="Times,serif" font-size="14.00" fill="#b07854">paired_boundary</text>
+<text text-anchor="start" x="687.053" y="-1248.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="745.343" y="-1248.4" font-family="Times,serif" font-size="14.00" fill="#b07854">ss_LV_inner</text>
+<text text-anchor="start" x="575.947" y="-1230.4" font-family="Times,serif" font-size="14.00" fill="#b07854">block</text>
+<text text-anchor="start" x="687.053" y="-1230.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="774.502" y="-1230.4" font-family="Times,serif" font-size="14.00" fill="#b07854">all</text>
 </g>
 <!-- global_root_delta_real_parameters_i_AuxVariables_distance_LV_inner -->
 <g id="node62" class="node"><title>global_root_delta_real_parameters_i_AuxVariables_distance_LV_inner</title>
@@ -1569,22 +1569,22 @@
 </g>
 <!-- global_root_delta_real_parameters_i_AuxKernels_auxdistance_RV_inner -->
 <g id="node51" class="node"><title>global_root_delta_real_parameters_i_AuxKernels_auxdistance_RV_inner</title>
-<polygon fill="none" stroke="#5457b0" points="860.5,-1200 507.5,-1200 503.5,-1196 503.5,-1120 856.5,-1120 860.5,-1124 860.5,-1200"/>
-<polyline fill="none" stroke="#5457b0" points="856.5,-1196 503.5,-1196 "/>
-<polyline fill="none" stroke="#5457b0" points="856.5,-1196 856.5,-1120 "/>
-<polyline fill="none" stroke="#5457b0" points="856.5,-1196 860.5,-1200 "/>
+<polygon fill="none" stroke="#b07854" points="860.5,-1200 507.5,-1200 503.5,-1196 503.5,-1120 856.5,-1120 860.5,-1124 860.5,-1200"/>
+<polyline fill="none" stroke="#b07854" points="856.5,-1196 503.5,-1196 "/>
+<polyline fill="none" stroke="#b07854" points="856.5,-1196 856.5,-1120 "/>
+<polyline fill="none" stroke="#b07854" points="856.5,-1196 860.5,-1200 "/>
 <polygon fill="#dddddd" stroke="none" points="512,-1178 512,-1196 853,-1196 853,-1178 512,-1178"/>
-<text text-anchor="start" x="512.621" y="-1183.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#5457b0">auxdistance_RV_inner </text>
-<text text-anchor="start" x="649.075" y="-1183.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">: VolumeNearestNodeDistanceAux</text>
-<text text-anchor="start" x="568.957" y="-1164.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">variable</text>
-<text text-anchor="start" x="687.053" y="-1164.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="727.961" y="-1164.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">distance_RV_inner</text>
-<text text-anchor="start" x="544.072" y="-1146.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">paired_boundary</text>
-<text text-anchor="start" x="687.053" y="-1146.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="745.451" y="-1146.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">ss_RV_inner</text>
-<text text-anchor="start" x="575.947" y="-1128.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">block</text>
-<text text-anchor="start" x="687.053" y="-1128.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="775.002" y="-1128.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">all</text>
+<text text-anchor="start" x="512.621" y="-1183.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#b07854">auxdistance_RV_inner </text>
+<text text-anchor="start" x="649.075" y="-1183.4" font-family="Times,serif" font-size="14.00" fill="#b07854">: VolumeNearestNodeDistanceAux</text>
+<text text-anchor="start" x="568.957" y="-1164.4" font-family="Times,serif" font-size="14.00" fill="#b07854">variable</text>
+<text text-anchor="start" x="687.053" y="-1164.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="727.961" y="-1164.4" font-family="Times,serif" font-size="14.00" fill="#b07854">distance_RV_inner</text>
+<text text-anchor="start" x="544.072" y="-1146.4" font-family="Times,serif" font-size="14.00" fill="#b07854">paired_boundary</text>
+<text text-anchor="start" x="687.053" y="-1146.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="745.451" y="-1146.4" font-family="Times,serif" font-size="14.00" fill="#b07854">ss_RV_inner</text>
+<text text-anchor="start" x="575.947" y="-1128.4" font-family="Times,serif" font-size="14.00" fill="#b07854">block</text>
+<text text-anchor="start" x="687.053" y="-1128.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="775.002" y="-1128.4" font-family="Times,serif" font-size="14.00" fill="#b07854">all</text>
 </g>
 <!-- global_root_delta_real_parameters_i_AuxVariables_distance_RV_inner -->
 <g id="node57" class="node"><title>global_root_delta_real_parameters_i_AuxVariables_distance_RV_inner</title>
@@ -1608,25 +1608,25 @@
 </g>
 <!-- global_root_delta_real_parameters_i_AuxKernels_auxthickness -->
 <g id="node52" class="node"><title>global_root_delta_real_parameters_i_AuxKernels_auxthickness</title>
-<polygon fill="none" stroke="#5457b0" points="827.5,-1422 540.5,-1422 536.5,-1418 536.5,-1324 823.5,-1324 827.5,-1328 827.5,-1422"/>
-<polyline fill="none" stroke="#5457b0" points="823.5,-1418 536.5,-1418 "/>
-<polyline fill="none" stroke="#5457b0" points="823.5,-1418 823.5,-1324 "/>
-<polyline fill="none" stroke="#5457b0" points="823.5,-1418 827.5,-1422 "/>
+<polygon fill="none" stroke="#b07854" points="827.5,-1422 540.5,-1422 536.5,-1418 536.5,-1324 823.5,-1324 827.5,-1328 827.5,-1422"/>
+<polyline fill="none" stroke="#b07854" points="823.5,-1418 536.5,-1418 "/>
+<polyline fill="none" stroke="#b07854" points="823.5,-1418 823.5,-1324 "/>
+<polyline fill="none" stroke="#b07854" points="823.5,-1418 827.5,-1422 "/>
 <polygon fill="#dddddd" stroke="none" points="545,-1400 545,-1418 820,-1418 820,-1400 545,-1400"/>
-<text text-anchor="start" x="545.665" y="-1405.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#5457b0">auxthickness </text>
-<text text-anchor="start" x="626.14" y="-1405.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">: CardiacThicknessParameterAux</text>
-<text text-anchor="start" x="586.957" y="-1386.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">variable</text>
-<text text-anchor="start" x="679.553" y="-1386.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="698.97" y="-1386.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">thickness_parameter</text>
-<text text-anchor="start" x="555.461" y="-1368.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">distance_RV_inner</text>
-<text text-anchor="start" x="679.553" y="-1368.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="702.461" y="-1368.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">distance_RV_inner</text>
-<text text-anchor="start" x="555.853" y="-1350.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">distance_LV_inner</text>
-<text text-anchor="start" x="679.553" y="-1350.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="702.853" y="-1350.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">distance_LV_inner</text>
-<text text-anchor="start" x="568.682" y="-1332.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">distance_outer</text>
-<text text-anchor="start" x="679.553" y="-1332.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="715.682" y="-1332.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">distance_outer</text>
+<text text-anchor="start" x="545.665" y="-1405.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#b07854">auxthickness </text>
+<text text-anchor="start" x="626.14" y="-1405.4" font-family="Times,serif" font-size="14.00" fill="#b07854">: CardiacThicknessParameterAux</text>
+<text text-anchor="start" x="586.957" y="-1386.4" font-family="Times,serif" font-size="14.00" fill="#b07854">variable</text>
+<text text-anchor="start" x="679.553" y="-1386.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="698.97" y="-1386.4" font-family="Times,serif" font-size="14.00" fill="#b07854">thickness_parameter</text>
+<text text-anchor="start" x="555.461" y="-1368.4" font-family="Times,serif" font-size="14.00" fill="#b07854">distance_RV_inner</text>
+<text text-anchor="start" x="679.553" y="-1368.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="702.461" y="-1368.4" font-family="Times,serif" font-size="14.00" fill="#b07854">distance_RV_inner</text>
+<text text-anchor="start" x="555.853" y="-1350.4" font-family="Times,serif" font-size="14.00" fill="#b07854">distance_LV_inner</text>
+<text text-anchor="start" x="679.553" y="-1350.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="702.853" y="-1350.4" font-family="Times,serif" font-size="14.00" fill="#b07854">distance_LV_inner</text>
+<text text-anchor="start" x="568.682" y="-1332.4" font-family="Times,serif" font-size="14.00" fill="#b07854">distance_outer</text>
+<text text-anchor="start" x="679.553" y="-1332.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="715.682" y="-1332.4" font-family="Times,serif" font-size="14.00" fill="#b07854">distance_outer</text>
 </g>
 <!-- global_root_delta_real_parameters_i_AuxVariables_thickness_parameter -->
 <g id="node58" class="node"><title>global_root_delta_real_parameters_i_AuxVariables_thickness_parameter</title>
@@ -1650,19 +1650,19 @@
 </g>
 <!-- global_root_delta_real_parameters_i_AuxKernels_aux_active_tension -->
 <g id="node53" class="node"><title>global_root_delta_real_parameters_i_AuxKernels_aux_active_tension</title>
-<polygon fill="none" stroke="#5457b0" points="803.5,-1098 564.5,-1098 560.5,-1094 560.5,-1036 799.5,-1036 803.5,-1040 803.5,-1098"/>
-<polyline fill="none" stroke="#5457b0" points="799.5,-1094 560.5,-1094 "/>
-<polyline fill="none" stroke="#5457b0" points="799.5,-1094 799.5,-1036 "/>
-<polyline fill="none" stroke="#5457b0" points="799.5,-1094 803.5,-1098 "/>
+<polygon fill="none" stroke="#b07854" points="803.5,-1098 564.5,-1098 560.5,-1094 560.5,-1036 799.5,-1036 803.5,-1040 803.5,-1098"/>
+<polyline fill="none" stroke="#b07854" points="799.5,-1094 560.5,-1094 "/>
+<polyline fill="none" stroke="#b07854" points="799.5,-1094 799.5,-1036 "/>
+<polyline fill="none" stroke="#b07854" points="799.5,-1094 803.5,-1098 "/>
 <polygon fill="#dddddd" stroke="none" points="569,-1076 569,-1094 796,-1094 796,-1076 569,-1076"/>
-<text text-anchor="start" x="569.762" y="-1081.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#5457b0">aux_active_tension </text>
-<text text-anchor="start" x="686.003" y="-1081.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">: MaterialRealAux</text>
-<text text-anchor="start" x="578.957" y="-1062.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">variable</text>
-<text text-anchor="start" x="639.053" y="-1062.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="683.567" y="-1062.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">active_tension</text>
-<text text-anchor="start" x="578.567" y="-1044.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">material</text>
-<text text-anchor="start" x="639.053" y="-1044.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="657.134" y="-1044.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">active_tension_material</text>
+<text text-anchor="start" x="569.762" y="-1081.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#b07854">aux_active_tension </text>
+<text text-anchor="start" x="686.003" y="-1081.4" font-family="Times,serif" font-size="14.00" fill="#b07854">: MaterialRealAux</text>
+<text text-anchor="start" x="578.957" y="-1062.4" font-family="Times,serif" font-size="14.00" fill="#b07854">variable</text>
+<text text-anchor="start" x="639.053" y="-1062.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="683.567" y="-1062.4" font-family="Times,serif" font-size="14.00" fill="#b07854">active_tension</text>
+<text text-anchor="start" x="578.567" y="-1044.4" font-family="Times,serif" font-size="14.00" fill="#b07854">material</text>
+<text text-anchor="start" x="639.053" y="-1044.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="657.134" y="-1044.4" font-family="Times,serif" font-size="14.00" fill="#b07854">active_tension_material</text>
 </g>
 <!-- global_root_delta_real_parameters_i_AuxVariables_active_tension -->
 <g id="node61" class="node"><title>global_root_delta_real_parameters_i_AuxVariables_active_tension</title>
@@ -1686,22 +1686,22 @@
 </g>
 <!-- global_root_delta_real_parameters_i_AuxKernels_auxdistance_outer -->
 <g id="node54" class="node"><title>global_root_delta_real_parameters_i_AuxKernels_auxdistance_outer</title>
-<polygon fill="none" stroke="#5457b0" points="847.5,-1524 520.5,-1524 516.5,-1520 516.5,-1444 843.5,-1444 847.5,-1448 847.5,-1524"/>
-<polyline fill="none" stroke="#5457b0" points="843.5,-1520 516.5,-1520 "/>
-<polyline fill="none" stroke="#5457b0" points="843.5,-1520 843.5,-1444 "/>
-<polyline fill="none" stroke="#5457b0" points="843.5,-1520 847.5,-1524 "/>
+<polygon fill="none" stroke="#b07854" points="847.5,-1524 520.5,-1524 516.5,-1520 516.5,-1444 843.5,-1444 847.5,-1448 847.5,-1524"/>
+<polyline fill="none" stroke="#b07854" points="843.5,-1520 516.5,-1520 "/>
+<polyline fill="none" stroke="#b07854" points="843.5,-1520 843.5,-1444 "/>
+<polyline fill="none" stroke="#b07854" points="843.5,-1520 847.5,-1524 "/>
 <polygon fill="#dddddd" stroke="none" points="525,-1502 525,-1520 840,-1520 840,-1502 525,-1502"/>
-<text text-anchor="start" x="525.843" y="-1507.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#5457b0">auxdistance_outer </text>
-<text text-anchor="start" x="635.853" y="-1507.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">: VolumeNearestNodeDistanceAux</text>
-<text text-anchor="start" x="581.957" y="-1488.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">variable</text>
-<text text-anchor="start" x="700.553" y="-1488.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="741.682" y="-1488.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">distance_outer</text>
-<text text-anchor="start" x="557.072" y="-1470.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">paired_boundary</text>
-<text text-anchor="start" x="700.553" y="-1470.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="759.173" y="-1470.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">ss_outer</text>
-<text text-anchor="start" x="588.947" y="-1452.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">block</text>
-<text text-anchor="start" x="700.553" y="-1452.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="775.502" y="-1452.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">all</text>
+<text text-anchor="start" x="525.843" y="-1507.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#b07854">auxdistance_outer </text>
+<text text-anchor="start" x="635.853" y="-1507.4" font-family="Times,serif" font-size="14.00" fill="#b07854">: VolumeNearestNodeDistanceAux</text>
+<text text-anchor="start" x="581.957" y="-1488.4" font-family="Times,serif" font-size="14.00" fill="#b07854">variable</text>
+<text text-anchor="start" x="700.553" y="-1488.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="741.682" y="-1488.4" font-family="Times,serif" font-size="14.00" fill="#b07854">distance_outer</text>
+<text text-anchor="start" x="557.072" y="-1470.4" font-family="Times,serif" font-size="14.00" fill="#b07854">paired_boundary</text>
+<text text-anchor="start" x="700.553" y="-1470.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="759.173" y="-1470.4" font-family="Times,serif" font-size="14.00" fill="#b07854">ss_outer</text>
+<text text-anchor="start" x="588.947" y="-1452.4" font-family="Times,serif" font-size="14.00" fill="#b07854">block</text>
+<text text-anchor="start" x="700.553" y="-1452.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="775.502" y="-1452.4" font-family="Times,serif" font-size="14.00" fill="#b07854">all</text>
 </g>
 <!-- global_root_delta_real_parameters_i_AuxVariables_distance_outer -->
 <g id="node59" class="node"><title>global_root_delta_real_parameters_i_AuxVariables_distance_outer</title>
@@ -1741,19 +1741,19 @@
 </g>
 <!-- global_root_delta_real_parameters_i_ScalarKernels_incompressibility -->
 <g id="node73" class="node"><title>global_root_delta_real_parameters_i_ScalarKernels_incompressibility</title>
-<polygon fill="none" stroke="#5457b0" points="875,-672 493,-672 489,-668 489,-610 871,-610 875,-614 875,-672"/>
-<polyline fill="none" stroke="#5457b0" points="871,-668 489,-668 "/>
-<polyline fill="none" stroke="#5457b0" points="871,-668 871,-610 "/>
-<polyline fill="none" stroke="#5457b0" points="871,-668 875,-672 "/>
+<polygon fill="none" stroke="#000077" points="875,-672 493,-672 489,-668 489,-610 871,-610 875,-614 875,-672"/>
+<polyline fill="none" stroke="#000077" points="871,-668 489,-668 "/>
+<polyline fill="none" stroke="#000077" points="871,-668 871,-610 "/>
+<polyline fill="none" stroke="#000077" points="871,-668 875,-672 "/>
 <polygon fill="#dddddd" stroke="none" points="497,-650 497,-668 867,-668 867,-650 497,-650"/>
-<text text-anchor="start" x="497.715" y="-655.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#5457b0">incompressibility </text>
-<text text-anchor="start" x="603.089" y="-655.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">: CardiacIncompressibilityLagrangeMultiplier</text>
-<text text-anchor="start" x="566.457" y="-636.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">variable</text>
-<text text-anchor="start" x="696.553" y="-636.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="735.577" y="-636.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">hydrostatic_pressure</text>
-<text text-anchor="start" x="527.176" y="-618.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">volume_ratio_postpro</text>
-<text text-anchor="start" x="696.553" y="-618.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="756.174" y="-618.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">volume_ratio</text>
+<text text-anchor="start" x="497.715" y="-655.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#000077">incompressibility </text>
+<text text-anchor="start" x="603.089" y="-655.4" font-family="Times,serif" font-size="14.00" fill="#000077">: CardiacIncompressibilityLagrangeMultiplier</text>
+<text text-anchor="start" x="566.457" y="-636.4" font-family="Times,serif" font-size="14.00" fill="#000077">variable</text>
+<text text-anchor="start" x="696.553" y="-636.4" font-family="Times,serif" font-size="14.00" fill="#000077">=</text>
+<text text-anchor="start" x="735.577" y="-636.4" font-family="Times,serif" font-size="14.00" fill="#000077">hydrostatic_pressure</text>
+<text text-anchor="start" x="527.176" y="-618.4" font-family="Times,serif" font-size="14.00" fill="#000077">volume_ratio_postpro</text>
+<text text-anchor="start" x="696.553" y="-618.4" font-family="Times,serif" font-size="14.00" fill="#000077">=</text>
+<text text-anchor="start" x="756.174" y="-618.4" font-family="Times,serif" font-size="14.00" fill="#000077">volume_ratio</text>
 </g>
 <!-- global_root_delta_real_parameters_i_Postprocessors_volume_ratio&#45;&gt;global_root_delta_real_parameters_i_ScalarKernels_incompressibility -->
 <g id="edge83" class="edge"><title>global_root_delta_real_parameters_i_Postprocessors_volume_ratio&#45;&gt;global_root_delta_real_parameters_i_ScalarKernels_incompressibility:volume_ratio_postprocessor_PARAM</title>

@@ -18,17 +18,19 @@ globaloptions={'table_heading_style': 'BGCOLOR="#dddddd"', # HTML style for the 
                }
 
 # the style search criteria (first column in the following) may be regular expressions that will be checked against node.fullName()[+param_name]
-nodestyles = { 'Kernels'       : {'color' : '#5457b0', 'fontcolor' : '#5457b0' },
-               'Variables'     : {'color' : '#000cff', 'fontcolor' : '#000cff' },
-               'ScalarKernels' : {'color' : '#000077', 'fontcolor' : '#000077' },
-               'AuxKernels'    : {'color' : '#b07854', 'fontcolor' : '#b07854' },
-               'AuxVariables'  : {'color' : '#ff6500', 'fontcolor' : '#ff6500' },
-               'BCs'           : {'color' : '#ff00b6', 'fontcolor' : '#ff00b6' },
-               'ICs'           : {'color' : '#be409a', 'fontcolor' : '#be409a' },
-               'Materials'     : {'color' : '#4d9302', 'fontcolor' : '#4d9302' },
-               'Mesh'          : {'color' : '#0000ff', 'fontcolor' : '#0000ff' },
-               'Transfers'     : {'color' : '#ff0000', 'fontcolor' : '#ff0000' },
-               'Splits'        : {'color' : '#ff00ff', 'fontcolor' : '#ff00ff' },
+# Note that these lists are traversed from first to left item and first match defines the style. Thus, of only 'Kernels' is before 'AuxKernels'
+# the latter will never be reached
+nodestyles = { '/Kernels'       : {'color' : '#5457b0', 'fontcolor' : '#5457b0' },
+               '/Variables'     : {'color' : '#000cff', 'fontcolor' : '#000cff' },
+               '/ScalarKernels' : {'color' : '#000077', 'fontcolor' : '#000077' },
+               '/AuxKernels'    : {'color' : '#b07854', 'fontcolor' : '#b07854' },
+               '/AuxVariables'  : {'color' : '#ff6500', 'fontcolor' : '#ff6500' },
+               '/BCs'           : {'color' : '#ff00b6', 'fontcolor' : '#ff00b6' },
+               '/ICs'           : {'color' : '#be409a', 'fontcolor' : '#be409a' },
+               '/Materials'     : {'color' : '#4d9302', 'fontcolor' : '#4d9302' },
+               '/Mesh'          : {'color' : '#0000ff', 'fontcolor' : '#0000ff' },
+               '/Transfers'     : {'color' : '#ff0000', 'fontcolor' : '#ff0000' },
+               '/Splits'        : {'color' : '#ff00ff', 'fontcolor' : '#ff00ff' },
              }
 
 edgestyles = { r'Transfers/.*\.variable'            : {'color' : '#ff0000', 'fontcolor' : '#ff0000', 'style': 'bold' },

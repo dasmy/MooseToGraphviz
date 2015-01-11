@@ -42,12 +42,12 @@
 <text text-anchor="start" x="484.065" y="-346.4" font-family="Times,serif" font-size="14.00" fill="#000cff">diffused</text>
 </g>
 <g id="clust5" class="cluster"><title>cluster_global_root_ex10_i_AuxKernels</title>
-<polygon fill="none" stroke="#5457b0" points="663,-227 663,-469 912,-469 912,-227 663,-227"/>
+<polygon fill="none" stroke="#b07854" points="663,-227 663,-469 912,-469 912,-227 663,-227"/>
 <polygon fill="#dddddd" stroke="none" points="671.5,-447 671.5,-465 904.5,-465 904.5,-447 671.5,-447"/>
-<text text-anchor="start" x="750.101" y="-452.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#5457b0">AuxKernels </text>
-<text text-anchor="start" x="672.288" y="-433.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">active</text>
-<text text-anchor="start" x="707.053" y="-433.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="716.115" y="-433.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">nodal_example element_example</text>
+<text text-anchor="start" x="750.101" y="-452.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#b07854">AuxKernels </text>
+<text text-anchor="start" x="672.288" y="-433.4" font-family="Times,serif" font-size="14.00" fill="#b07854">active</text>
+<text text-anchor="start" x="707.053" y="-433.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="716.115" y="-433.4" font-family="Times,serif" font-size="14.00" fill="#b07854">nodal_example element_example</text>
 </g>
 <g id="clust6" class="cluster"><title>cluster_global_root_ex10_i_AuxVariables</title>
 <polygon fill="none" stroke="#ff6500" points="1020,-254 1020,-460 1215,-460 1215,-254 1020,-254"/>
@@ -129,22 +129,22 @@
 </g>
 <!-- global_root_ex10_i_AuxKernels_nodal_example -->
 <g id="node5" class="node"><title>global_root_ex10_i_AuxKernels_nodal_example</title>
-<polygon fill="none" stroke="#5457b0" points="885.5,-417 692.5,-417 688.5,-413 688.5,-337 881.5,-337 885.5,-341 885.5,-417"/>
-<polyline fill="none" stroke="#5457b0" points="881.5,-413 688.5,-413 "/>
-<polyline fill="none" stroke="#5457b0" points="881.5,-413 881.5,-337 "/>
-<polyline fill="none" stroke="#5457b0" points="881.5,-413 885.5,-417 "/>
+<polygon fill="none" stroke="#b07854" points="885.5,-417 692.5,-417 688.5,-413 688.5,-337 881.5,-337 885.5,-341 885.5,-417"/>
+<polyline fill="none" stroke="#b07854" points="881.5,-413 688.5,-413 "/>
+<polyline fill="none" stroke="#b07854" points="881.5,-413 881.5,-337 "/>
+<polyline fill="none" stroke="#b07854" points="881.5,-413 885.5,-417 "/>
 <polygon fill="#dddddd" stroke="none" points="697,-395 697,-413 878,-413 878,-395 697,-395"/>
-<text text-anchor="start" x="697.694" y="-400.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#5457b0">nodal_example </text>
-<text text-anchor="start" x="791.385" y="-400.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">: ExampleAux</text>
-<text text-anchor="start" x="713.957" y="-381.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">variable</text>
-<text text-anchor="start" x="784.553" y="-381.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="810.34" y="-381.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">nodal_aux</text>
-<text text-anchor="start" x="721.34" y="-363.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">value</text>
-<text text-anchor="start" x="784.553" y="-363.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="830.75" y="-363.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">3.0</text>
-<text text-anchor="start" x="714.34" y="-345.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">coupled</text>
-<text text-anchor="start" x="784.553" y="-345.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="816.564" y="-345.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">diffused</text>
+<text text-anchor="start" x="697.694" y="-400.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#b07854">nodal_example </text>
+<text text-anchor="start" x="791.385" y="-400.4" font-family="Times,serif" font-size="14.00" fill="#b07854">: ExampleAux</text>
+<text text-anchor="start" x="713.957" y="-381.4" font-family="Times,serif" font-size="14.00" fill="#b07854">variable</text>
+<text text-anchor="start" x="784.553" y="-381.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="810.34" y="-381.4" font-family="Times,serif" font-size="14.00" fill="#b07854">nodal_aux</text>
+<text text-anchor="start" x="721.34" y="-363.4" font-family="Times,serif" font-size="14.00" fill="#b07854">value</text>
+<text text-anchor="start" x="784.553" y="-363.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="830.75" y="-363.4" font-family="Times,serif" font-size="14.00" fill="#b07854">3.0</text>
+<text text-anchor="start" x="714.34" y="-345.4" font-family="Times,serif" font-size="14.00" fill="#b07854">coupled</text>
+<text text-anchor="start" x="784.553" y="-345.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="816.564" y="-345.4" font-family="Times,serif" font-size="14.00" fill="#b07854">diffused</text>
 </g>
 <!-- global_root_ex10_i_Variables_diffused&#45;&gt;global_root_ex10_i_AuxKernels_nodal_example -->
 <g id="edge3" class="edge"><title>global_root_ex10_i_Variables_diffused&#45;&gt;global_root_ex10_i_AuxKernels_nodal_example:coupled_PARAM</title>
@@ -153,22 +153,22 @@
 </g>
 <!-- global_root_ex10_i_AuxKernels_element_example -->
 <g id="node6" class="node"><title>global_root_ex10_i_AuxKernels_element_example</title>
-<polygon fill="none" stroke="#5457b0" points="892,-315 686,-315 682,-311 682,-235 888,-235 892,-239 892,-315"/>
-<polyline fill="none" stroke="#5457b0" points="888,-311 682,-311 "/>
-<polyline fill="none" stroke="#5457b0" points="888,-311 888,-235 "/>
-<polyline fill="none" stroke="#5457b0" points="888,-311 892,-315 "/>
+<polygon fill="none" stroke="#b07854" points="892,-315 686,-315 682,-311 682,-235 888,-235 892,-239 892,-315"/>
+<polyline fill="none" stroke="#b07854" points="888,-311 682,-311 "/>
+<polyline fill="none" stroke="#b07854" points="888,-311 888,-235 "/>
+<polyline fill="none" stroke="#b07854" points="888,-311 892,-315 "/>
 <polygon fill="#dddddd" stroke="none" points="690,-293 690,-311 884,-311 884,-293 690,-293"/>
-<text text-anchor="start" x="690.589" y="-298.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#5457b0">element_example </text>
-<text text-anchor="start" x="797.49" y="-298.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">: ExampleAux</text>
-<text text-anchor="start" x="706.957" y="-279.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">variable</text>
-<text text-anchor="start" x="777.553" y="-279.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="803.235" y="-279.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">element_aux</text>
-<text text-anchor="start" x="714.34" y="-261.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">value</text>
-<text text-anchor="start" x="777.553" y="-261.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="830.25" y="-261.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">4.0</text>
-<text text-anchor="start" x="707.34" y="-243.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">coupled</text>
-<text text-anchor="start" x="777.553" y="-243.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">=</text>
-<text text-anchor="start" x="816.064" y="-243.4" font-family="Times,serif" font-size="14.00" fill="#5457b0">diffused</text>
+<text text-anchor="start" x="690.589" y="-298.4" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#b07854">element_example </text>
+<text text-anchor="start" x="797.49" y="-298.4" font-family="Times,serif" font-size="14.00" fill="#b07854">: ExampleAux</text>
+<text text-anchor="start" x="706.957" y="-279.4" font-family="Times,serif" font-size="14.00" fill="#b07854">variable</text>
+<text text-anchor="start" x="777.553" y="-279.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="803.235" y="-279.4" font-family="Times,serif" font-size="14.00" fill="#b07854">element_aux</text>
+<text text-anchor="start" x="714.34" y="-261.4" font-family="Times,serif" font-size="14.00" fill="#b07854">value</text>
+<text text-anchor="start" x="777.553" y="-261.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="830.25" y="-261.4" font-family="Times,serif" font-size="14.00" fill="#b07854">4.0</text>
+<text text-anchor="start" x="707.34" y="-243.4" font-family="Times,serif" font-size="14.00" fill="#b07854">coupled</text>
+<text text-anchor="start" x="777.553" y="-243.4" font-family="Times,serif" font-size="14.00" fill="#b07854">=</text>
+<text text-anchor="start" x="816.064" y="-243.4" font-family="Times,serif" font-size="14.00" fill="#b07854">diffused</text>
 </g>
 <!-- global_root_ex10_i_Variables_diffused&#45;&gt;global_root_ex10_i_AuxKernels_element_example -->
 <g id="edge5" class="edge"><title>global_root_ex10_i_Variables_diffused&#45;&gt;global_root_ex10_i_AuxKernels_element_example:coupled_PARAM</title>
