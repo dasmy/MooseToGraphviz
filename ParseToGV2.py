@@ -112,7 +112,9 @@ def ParseConnections(node):
     search_start_list = [node]
     if node.parent != None:
       if node.parent.name == 'Transfers':
-        search_start_list = multiapp_nodes[node.params['multi_app']] + search_start_list
+        if (node.params['direction'] == 'to_multiapp'   and param == 'variable' ) or \
+           (node.params['direction'] == 'from_multiapp' and param == 'source_variable' ):
+          search_start_list = multiapp_nodes[node.params['multi_app']] + search_start_list
     
     for search_start in search_start_list:
       nd_connected, found = search_upwards(search_start, value, excludenodes=[node.fullName()], prefernodenames=['Variables', 'AuxVariables'])
