@@ -21,13 +21,13 @@
 []
 
 [BCs]
-  [./bc_left]
+  [./left]
     type = DirichletBC
     variable = u
     boundary = leftleft
     value = 0
   [../]
-  [./bc_right]
+  [./right]
     type = DirichletBC
     variable = u
     boundary = rightright

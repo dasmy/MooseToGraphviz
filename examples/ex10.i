@@ -58,16 +58,16 @@
 []
 
 [BCs]
-  active = 'bc_bottom bc_top'
+  active = 'bottom top'
 
-  [./bc_bottom]
+  [./bottom]
     type = DirichletBC
     variable = diffused
     boundary = 'bottom'
     value = 0
   [../]
 
-  [./bc_top]
+  [./top]
     type = DirichletBC
     variable = diffused
     boundary = 'top'
