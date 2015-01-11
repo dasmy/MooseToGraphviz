@@ -32,7 +32,7 @@ nodestyles = { 'Kernels'       : {'color' : '#5457b0', 'fontcolor' : '#5457b0' }
                'Splits'        : {'color' : '#ff00ff', 'fontcolor' : '#ff00ff' },
              }
 
-edgestyles = { 'Transfers'     : {'color' : '#ff0000', 'fontcolor' : '#ff0000' },
+edgestyles = { 'Transfers'     : {'color' : '#ff0000', 'fontcolor' : '#ff0000', 'style': 'bold' },
              }
 
 #####################
@@ -79,7 +79,6 @@ def getNode(search_root, name, **kwargs):
   return None
 
 
-# TODO: add preferrednodenames to start searching at Variables and AuxVariables
 def search_upwards(node, search_string, **kwargs):
   # we first search local trees and slowly traverse upwards until we found something
   # this looks inefficient but enforces matches to be as local as possible
@@ -88,8 +87,25 @@ def search_upwards(node, search_string, **kwargs):
     nd = getNode(parent, search_string, **kwargs)
     parent = parent.parent
     if nd != None:
-      return nd, True
-  return None, False
+      return nd
+  return None
+
+
+def search_upwards_prefer(node, search_string, prefer_nodes, **kwargs):
+  # we possibly want to prefer starting at especially selected nodes...
+  for pref_name in prefer_nodes:
+    nd_pref = search_upwards(node, pref_name)
+    if nd_pref != None:
+      nd = getNode(nd_pref, search_string, **kwargs)
+      if nd != None:
+        return nd
+
+  # finally if nothing found we will start at the node that was originally given
+  nd = search_upwards(node, search_string, **kwargs)
+  if nd != None:
+    return nd
+
+  return None
 
 
 def ParseFile(filename, basepath):
@@ -161,8 +177,8 @@ def ParseConnections(node, prefix, edgestyle):
             search_start_list = multiapp_nodes[node.params['multi_app']] + search_start_list
 
       for search_start in search_start_list:
-        nd_connected, found = search_upwards(search_start, value, excludenodes=[node.fullName()], prefernodenames=['Variables', 'AuxVariables'])
-        if found:
+        nd_connected = search_upwards_prefer(search_start, value, ['Variables', 'AuxVariables'], excludenodes=[node.fullName()])
+        if nd_connected != None:
           if param == 'variable':
             # revert edge since this feels more natural
             add_edge(prefix + node.fullName(), nd_connected.fullName(), edgestyle, port_from='%s_VALUE' % tr(param), labeltype='taillabel', label=param)
