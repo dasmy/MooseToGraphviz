@@ -28,12 +28,28 @@ def attach_child(nd_parent, nd_child):
   nd_parent.children_list.append(nd_child.name)
 
 
-def search_upwards(node, search_string):
+def getNode(search_root, name, **kwargs):
+  if name in search_root.children:
+    if 'excludenodes' in kwargs.keys():
+      for excludenode in kwargs['excludenodes']:
+        if excludenode == search_root.children[name].fullName():
+          return None
+    return search_root.children[name]
+  else:
+    for key, value in search_root.children.iteritems():
+      node = getNode(value, name, **kwargs)
+      if node != None:
+        return node
+  return None
+
+
+# TODO: add preferrednodenames
+def search_upwards(node, search_string, **kwargs):
   # we first search local trees and slowly traverse upwards until we found something
   # this looks inefficient but enforces matches to be as local as possible
   parent = node
   while parent != None:
-    nd = parent.getNode(search_string)
+    nd = getNode(parent, search_string, **kwargs)
     parent = parent.parent
     if nd != None:
       return nd, True
@@ -52,7 +68,7 @@ def ParseFile(filename, basepath):
     nd_file.name = tr(os.path.basename(filename))
     nd_file.parent = None
     # search it for any MultiApps
-    nd_multiapp = nd_file.getNode('MultiApps')
+    nd_multiapp = getNode(nd_file, 'MultiApps')
     if nd_multiapp != None:
       # traverse over all possible sub-apps
       for nd_sub in nd_multiapp.children.values():
@@ -78,11 +94,12 @@ def add_edge(nd_from, nd_to, **kwargs):
 def ParseConnections(node):
   for param, value in node.params.iteritems():
     # regular parameter
-    # we first search local trees and slowly traverse upwards until we found something
+    # we first search local trees and traverse upwards until we found something
     # this looks inefficient but enforces matches to be as local as possible
-    # TODO: special handling for Transfer blocks (search the respective file first)
-    # TODO: special handling for blocks that have the same name as the variable they use (and similar): I assume a block will never point to itself
-    nd_connected, found = search_upwards(node, value)
+    # TODO: special handling for Transfer blocks (search the respective file first, redirect arrows appropriately)
+    # We prevent pointing to ourselves because no block will ever reference itself (I assume)
+    # Furthermore, we prefer starting our search in a Variables or AuxVariables block
+    nd_connected, found = search_upwards(node, value, excludenodes=[node.fullName()], prefernodenames=['Variables', 'AuxVariables'])
     if found:
       if param == 'variable':
         # revert edge since this feels more natural
