@@ -25,7 +25,20 @@ def tr(s):
 
 def attach_child(nd_parent, nd_child):
   nd_child.parent = nd_parent
-  nd_parent.children.append(nd_child)
+  nd_parent.children[nd_child.name] = nd_child
+  nd_parent.children_list.append(nd_child.name)
+
+
+def search_upwards(node, search_string):
+  # we first search local trees and slowly traverse upwards until we found something
+  # this looks inefficient but enforces matches to be as local as possible
+  parent = node
+  while parent != None:
+    nd = parent.getNode(search_string)
+    parent = parent.parent
+    if nd != None:
+      return nd, True
+  return None, False
 
 
 def ParseFile(filename, basepath):
@@ -45,16 +58,39 @@ def ParseFile(filename, basepath):
       # traverse over all possible sub-apps
       for nd_sub in nd_multiapp.children.values():
         # traverse over all entries in their 'input_files' parameter
-        for filename_sub in nd_multi.params['input_files'].split(' '):
+        for filename_sub in nd_sub.params['input_files'].split(' '):
           nd_subfile = ParseFile(filename_sub, basepath)
           attach_child(nd_sub, nd_subfile)
           
     return nd_file
 
 
+def add_edge(nd_from, nd_to, **kwargs):
+  name_to = tr(nd_to.fullName())
+  if 'port_to' in kwargs.keys():
+    name_to += ':%s' % kwargs['port_to']
+  name_from = tr(nd_from.fullName())
+  if 'port_from' in kwargs.keys():
+    name_from += ':%s' % kwargs['port_from']
+
+  edgelist.append('%s -> %s[];' % (name_from, name_to))
+
+
 def ParseConnections(node):
-  # TODO
-  print ''
+  for param, value in node.params.iteritems():
+    # regular parameter
+    # we first search local trees and slowly traverse upwards until we found something
+    # this looks inefficient but enforces matches to be as local as possible
+    # TODO: special handling for Transfer blocks (search the respective file first)
+    # TODO: special handling for blocks that have the same name as the variable they use (and similar): I assume a block will never point to itself
+    nd_connected, found = search_upwards(node, value)
+    if found:
+      if param == 'variable':
+        # revert edge since this feels more natural
+        add_edge(node, nd_connected, port_from='%s_VALUE' % tr(param))
+      else:
+        add_edge(nd_connected, node, port_to='%s_PARAM' % tr(param))
+
 
 def CreateParamTable(node, heading):
   # add node name (and type if available) in a heading line with colored background
@@ -67,40 +103,41 @@ def CreateParamTable(node, heading):
   else:
     # add node type if available in a heading line with no
     if 'type' in node.params_list:
-      table += ['<TR><TD COLSPAN="3" %s><B>%s&nbsp;</B></TD></TR>' % tr(globaloptions['cluster_table_heading_style'], node.params['type'])]
+      table += ['<TR><TD COLSPAN="3" %s><B>%s&nbsp;</B></TD></TR>' % (tr(globaloptions['cluster_table_heading_style']), node.params['type'])]
 
   # create the tables for all parameters except 'type' (because this is in the headline already)
-  # TODO: add ports everywhere !
   for param, value in node.params.iteritems():
     if param != 'type':
-      table += ['<TR><TD PORT="%s_PARAM">%s</TD><TD>=</TD><TD PORT="%s_VALUE">%s</TD></TR>' % (param, param[0:globaloptions['maxlen_param']], param, value[0:globaloptions['maxlen_value']])]
+      table += ['<TR><TD PORT="%s_PARAM">%s</TD><TD>=</TD><TD PORT="%s_VALUE">%s</TD></TR>' % (tr(param), param[0:globaloptions['maxlen_param']], tr(param), value[0:globaloptions['maxlen_value']])]
 
   table += ['</TABLE>']
-
-  # do not add an empty table
-  if len(node.params) > 0 or heading:
-    if heading:
-      nodelist.append('%s[label=<%s>];' % (tr(node.fullName()), '\n'.join(table)))
-    else:
-      # no heading --> simple plaintext node style
-      nodelist.append('%s[label=<%s>, shape=plaintext];' % (tr(node.fullName()), '\n'.join(table)))
-    
-  # connect parameter values etc. to respective tree nodes if we can find them
-  ParseConnections(node)
+  
+  return table
 
 
 def ParseTree(node):
+  global nodelist
   if len(node.children) > 0:
     # we have to produce a cluster for this node
-    nodelist.append("subgraph cluster_%s" % tr(node.fullName()))
-    nodelist.append('{  label=<<B>%s</B>>;' % node.name)
-    CreateParamTable(node, False)
+    nodelist.append("subgraph cluster_%s{label=<<B>%s</B>" % (tr(node.fullName()), node.name))
+    # for clusters we do not want to show an empty table
+    nodelist[-1] += '>;'
+
+    # TODO: i would sincerely like to see this aspart of the cluster label instead of as a separate node
+    if len(node.params) > 0:
+      table = CreateParamTable(node, False)
+      nodelist.append('%s[label=<%s>; shape=plaintext];' % (tr(node.fullName()), '\n'.join(table)))
+    
     for nd_child in node.children.values():
       ParseTree(nd_child)
     nodelist.append('}')
   else:
     # no child nodes --> no cluster
-    CreateParamTable(node, True)
+    table = CreateParamTable(node, True)
+    nodelist.append('%s[label=<%s>];' % (tr(node.fullName()), '\n'.join(table)))
+
+  # connect parameter values etc. to respective tree nodes if we can find them
+  ParseConnections(node)
 
 
 if __name__ == '__main__':
@@ -110,6 +147,7 @@ if __name__ == '__main__':
     # since we also want to draw connections between different files
     # (for sub-apps), we first have to read them completely...
     global_root = ParseFile(filename, basepath)
+    
     # ...before we parse their connections
     ParseTree(global_root)
     
