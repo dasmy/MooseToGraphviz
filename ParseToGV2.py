@@ -13,6 +13,19 @@ globaloptions={'table_heading_style': 'BGCOLOR="#dddddd"', # HTML style for the 
                'maxlen_value': 35, # maximum length (number of characters) for parameter names in parameter tables
               }
 
+styles = { 'Kernels'       : {'color' : '#5457b0', 'fontcolor' : '#5457b0' },
+           'Variables'     : {'color' : '#000cff', 'fontcolor' : '#000cff' },
+           'ScalarKernels' : {'color' : '#000077', 'fontcolor' : '#000077' },
+           'AuxKernels'    : {'color' : '#b07854', 'fontcolor' : '#b07854' },
+           'AuxVariables'  : {'color' : '#ff6500', 'fontcolor' : '#ff6500' },
+           'BCs'           : {'color' : '#ff00b6', 'fontcolor' : '#ff00b6' },
+           'ICs'           : {'color' : '#be409a', 'fontcolor' : '#be409a' },
+           'Materials'     : {'color' : '#4d9302', 'fontcolor' : '#4d9302' },
+           'Mesh'          : {'color' : '#0000ff', 'fontcolor' : '#0000ff' },
+           'Transfers'     : {'color' : '#ff0000', 'fontcolor' : '#ff0000' },
+           'Splits'        : {'color' : '#ff00ff', 'fontcolor' : '#ff00ff' },
+         }
+
 
 nodelist = []
 edgelist = []
@@ -44,7 +57,7 @@ def getNode(search_root, name, **kwargs):
   return None
 
 
-# TODO: add preferrednodenames
+# TODO: add preferrednodenames to start searching at Variables and AuxVariables
 def search_upwards(node, search_string, **kwargs):
   # we first search local trees and slowly traverse upwards until we found something
   # this looks inefficient but enforces matches to be as local as possible
@@ -110,7 +123,7 @@ def ParseConnections(node):
     # * special handling for Transfer blocks (search the respective file first, redirect arrows appropriately)
     #   better reflect the data flow directions
     search_start_list = [node]
-    if node.parent != None:
+    if node.parent != None: # TODO: highlight transfer arrows
       if node.parent.name == 'Transfers':
         if (node.params['direction'] == 'to_multiapp'   and param == 'variable' ) or \
            (node.params['direction'] == 'from_multiapp' and param == 'source_variable' ):
@@ -145,20 +158,28 @@ def CreateParamTable(node):
   return table
 
 
-def ParseTree(node):
+def getStyle(nodename):
+  style = ''
+  if nodename in styles.keys():
+    for key, val in styles[nodename].iteritems():
+      style += '%s="%s"' % (key, val)
+  return style
+
+def ParseTree(node, parentstyle):
   global nodelist
+  style = parentstyle + getStyle(node.name)
   table = CreateParamTable(node)
   
   if len(node.children) > 0:
     # we have to produce a cluster for this node
-    nodelist.append("subgraph cluster_%s{label=<%s>" % (tr(node.fullName()), '\n'.join(table)))
+    nodelist.append("subgraph cluster_%s{label=<%s>;%s" % (tr(node.fullName()), '\n'.join(table), style))
     # include this node's children
     for nd_child in node.children.values():
-      ParseTree(nd_child)
+      ParseTree(nd_child, style)
     nodelist.append('}')
   else:
     # no child nodes --> no cluster
-    nodelist.append('%s[label=<%s>];' % (tr(node.fullName()), '\n'.join(table)))
+    nodelist.append('%s[label=<%s>;%s];' % (tr(node.fullName()), '\n'.join(table), style))
 
   # connect parameter values etc. to respective tree nodes if we can find them
   ParseConnections(node)
@@ -176,7 +197,7 @@ if __name__ == '__main__':
       attach_child(global_root, node)
     # ...before we parse their connections
     for node in global_root.children.values():
-      ParseTree(node)
+      ParseTree(node,'')
     
 
     print 'strict digraph "%s" {' % sys.argv[1]
