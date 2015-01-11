@@ -14,7 +14,10 @@ globaloptions={'table_heading_style': 'BGCOLOR="#dddddd"', # HTML style for the 
                'connection_ports' : True,  # if set to True, arrows point to entries in parameter tables. Otherwise, they point to the nodes
                'use_splines'      : True,  # if True, splines are used for the edges. otherwise orthogonal connectors
                'includeparams'    : True,  # if False, parameters are not shown which reduces graph size considerably
+               'showactive'       : False, # if set to False, node's "active" parameters are ignored for the output (usually they make output a bit messy but do not add much information)
                }
+
+#TODO: all cluster parameters are currently not available via PORTS (e.g. 'active' in ex10.i, set globaloptions['showactive']=True to see the problem)
 
 styles = { 'Kernels'       : {'color' : '#5457b0', 'fontcolor' : '#5457b0' },
            'Variables'     : {'color' : '#000cff', 'fontcolor' : '#000cff' },
@@ -120,8 +123,8 @@ def ParseFile(filename, basepath):
 
 
 def add_edge(nd_from, nd_to, **kwargs):
-  name_to = tr(nd_to.fullName())
-  name_from = tr(nd_from.fullName())
+  name_to = tr(nd_to)
+  name_from = tr(nd_from)
 
   if globaloptions['connection_ports']:
     if 'port_to' in kwargs.keys():
@@ -135,8 +138,11 @@ def add_edge(nd_from, nd_to, **kwargs):
     
 
 
-def ParseConnections(node):
+def ParseConnections(node, prefix):
   for param, composite_value in node.params.iteritems():
+    if param == 'active' and not globaloptions['showactive']:
+      continue
+
     for value in composite_value.split(' '): # treat "displacements='dx dy dz'" separately
       # Try to connect regular parameters to respective blocks.
       # We first search local trees and traverse upwards until we found something
@@ -157,9 +163,9 @@ def ParseConnections(node):
         if found:
           if param == 'variable':
             # revert edge since this feels more natural
-            add_edge(node, nd_connected, port_from='%s_VALUE' % tr(param), labeltype='taillabel', label=param)
+            add_edge(prefix + node.fullName(), nd_connected.fullName(), port_from='%s_VALUE' % tr(param), labeltype='taillabel', label=param)
           else:
-            add_edge(nd_connected, node, port_to='%s_PARAM' % tr(param), labeltype='headlabel', label=param)
+            add_edge(nd_connected.fullName(), prefix + node.fullName(), port_to='%s_PARAM' % tr(param), labeltype='headlabel', label=param)
         break
 
 
@@ -201,12 +207,15 @@ def ParseTree(node, parentstyle):
     for nd_child in node.children.values():
       ParseTree(nd_child, style)
     nodelist.append('}')
+
+    # connect parameter values etc. to respective tree nodes if we can find them
+    ParseConnections(node, prefix='cluster_')
   else:
     # no child nodes --> no cluster
     nodelist.append('%s[label=<%s>;%s];' % (tr(node.fullName()), '\n'.join(table), style))
 
-  # connect parameter values etc. to respective tree nodes if we can find them
-  ParseConnections(node)
+    # connect parameter values etc. to respective tree nodes if we can find them
+    ParseConnections(node, prefix='')
 
 
 if __name__ == '__main__':

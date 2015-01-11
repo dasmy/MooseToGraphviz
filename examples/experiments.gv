@@ -32,9 +32,14 @@ strict digraph GraphName {
   n088 [shape=box3d,label="box3d\nbla\nbla\nbla"]
   n099 [shape=component,label="component\nbla\nbla\nbla"]
   
-  anothernode[label=<<B>blabla&nbsp;</B>
+subgraph clustercl2 {
+  label=<
     <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
-      <TR><TD>bla</TD></TR>
-    </TABLE>>, shape=plaintext];
+      <TR><TD PORT="BLA">bla1</TD><TD PORT="BLUPP">blupp</TD></TR>
+    </TABLE>>;shape=plaintext;
+   }
+   
+  anode -> cl2:BLUPP [label=6]
+  
 
 }
