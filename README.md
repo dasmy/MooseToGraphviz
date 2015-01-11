@@ -57,4 +57,5 @@ A rather complex example is composed of [`delta_real_parameters.i`](examples/del
 
 TODO
 ----
+* all cluster parameters are currently not available via PORTS (e.g. 'active' in ex10.i, set globaloptions['showactive']=True to see the problem)
 * Think about how to deal with comments

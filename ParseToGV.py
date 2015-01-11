@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import sys, os
+import sys, os, re
 from ParseGetPot import GPNode, ParseGetPot
 
 # GraphViz global parameters (default node shape and size, edge type, etc.)
@@ -17,8 +17,7 @@ globaloptions={'table_heading_style': 'BGCOLOR="#dddddd"', # HTML style for the 
                'showactive'       : False, # if set to False, node's "active" parameters are ignored for the output (usually they make output a bit messy but do not add much information)
                }
 
-#TODO: all cluster parameters are currently not available via PORTS (e.g. 'active' in ex10.i, set globaloptions['showactive']=True to see the problem)
-#TODO: add option to limit edge styling to specific parameter names
+# the style search criteria (first column in the following) may be regular expressions that will be checked against node.fullName()[+param_name]
 nodestyles = { 'Kernels'       : {'color' : '#5457b0', 'fontcolor' : '#5457b0' },
                'Variables'     : {'color' : '#000cff', 'fontcolor' : '#000cff' },
                'ScalarKernels' : {'color' : '#000077', 'fontcolor' : '#000077' },
@@ -32,7 +31,8 @@ nodestyles = { 'Kernels'       : {'color' : '#5457b0', 'fontcolor' : '#5457b0' }
                'Splits'        : {'color' : '#ff00ff', 'fontcolor' : '#ff00ff' },
              }
 
-edgestyles = { 'Transfers'     : {'color' : '#ff0000', 'fontcolor' : '#ff0000', 'style': 'bold' },
+edgestyles = { r'Transfers/.*\.variable'            : {'color' : '#ff0000', 'fontcolor' : '#ff0000', 'style': 'bold' },
+               r'Transfers/.*\.source_variable'     : {'color' : '#ff0000', 'fontcolor' : '#ff0000', 'style': 'bold' },
              }
 
 #####################
@@ -140,6 +140,15 @@ def ParseFile(filename, basepath):
     return nodes_found
 
 
+def findStyle(list, name):
+  style = ''
+  for key, val in list.iteritems():
+    if re.search(key, name) != None:
+      for skey, sval in val.iteritems():
+        style += '%s="%s"' % (skey, sval)
+      break
+  return style
+
 def add_edge(nd_from, nd_to, style, **kwargs):
   name_to = tr(nd_to)
   name_from = tr(nd_from)
@@ -156,7 +165,7 @@ def add_edge(nd_from, nd_to, style, **kwargs):
     
 
 
-def ParseConnections(node, prefix, edgestyle):
+def ParseConnections(node, prefix):
   for param, composite_value in node.params.iteritems():
     if param == 'active' and not globaloptions['showactive']:
       continue
@@ -179,6 +188,8 @@ def ParseConnections(node, prefix, edgestyle):
       for search_start in search_start_list:
         nd_connected = search_upwards_prefer(search_start, value, ['Variables', 'AuxVariables'], excludenodes=[node.fullName()])
         if nd_connected != None:
+          edgestyle = findStyle(edgestyles, node.fullName()+'.'+param)
+        
           if param == 'variable':
             # revert edge since this feels more natural
             add_edge(prefix + node.fullName(), nd_connected.fullName(), edgestyle, port_from='%s_VALUE' % tr(param), labeltype='taillabel', label=param)
@@ -205,26 +216,9 @@ def CreateParamTable(node):
   return table
 
 
-def getNodeStyle(nodename):
-  style = ''
-  if nodename in nodestyles.keys():
-    for key, val in nodestyles[nodename].iteritems():
-      style += '%s="%s"' % (key, val)
-  return style
-
-
-def getEdgeStyle(nodename):
-  style = ''
-  if nodename in edgestyles.keys():
-    for key, val in edgestyles[nodename].iteritems():
-      style += '%s="%s"' % (key, val)
-  return style
-
-
-def ParseTree(node, parentnodestyle, parentedgestyle):
+def ParseTree(node):
   global nodelist
-  nodestyle = parentnodestyle + getNodeStyle(node.name)
-  edgestyle = parentedgestyle + getEdgeStyle(node.name)
+  nodestyle = findStyle(nodestyles, node.fullName())
   table = CreateParamTable(node)
   
   if len(node.children) > 0:
@@ -232,17 +226,17 @@ def ParseTree(node, parentnodestyle, parentedgestyle):
     nodelist.append("subgraph cluster_%s{label=<%s>;%s" % (tr(node.fullName()), '\n'.join(table), nodestyle))
     # include this node's children
     for nd_child in node.children.values():
-      ParseTree(nd_child, nodestyle, edgestyle)
+      ParseTree(nd_child)
     nodelist.append('}')
 
     # connect parameter values etc. to respective tree nodes if we can find them
-    ParseConnections(node, 'cluster_', edgestyle)
+    ParseConnections(node, 'cluster_')
   else:
     # no child nodes --> no cluster
     nodelist.append('%s[label=<%s>;%s];' % (tr(node.fullName()), '\n'.join(table), nodestyle))
 
     # connect parameter values etc. to respective tree nodes if we can find them
-    ParseConnections(node, '', edgestyle)
+    ParseConnections(node, '')
 
 
 if __name__ == '__main__':
@@ -257,7 +251,7 @@ if __name__ == '__main__':
       attach_child(global_root, node)
     # ...before we parse their connections
     for node in global_root.children.values():
-      ParseTree(node, '', '')
+      ParseTree(node)
     
 
     print 'strict digraph "%s" {' % sys.argv[1]
@@ -267,4 +261,4 @@ if __name__ == '__main__':
 
     print '}'
   else:
-    print 'Usage %s filename' % sys.argv[0]
+    sys.stderr.write('\n     Usage %s filename\n\n' % sys.argv[0])
