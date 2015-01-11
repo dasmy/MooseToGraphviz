@@ -9,11 +9,12 @@ gv_globalpars=['layout=dot;size="20,20";rankdir=LR;splines=true;pad="0";ranksep=
                'edge[color="#808080";fontcolor="#808080"];']
                
 globaloptions={'table_heading_style': 'BGCOLOR="#dddddd"', # HTML style for the parameter table headings
-               'maxlen_param': 20, # maximum length (number of characters) for parameter names in parameter tables
-               'maxlen_value': 35, # maximum length (number of characters) for parameter names in parameter tables
+               'maxlen_param'     : 20,    # maximum length (number of characters) for parameter names in parameter tables
+               'maxlen_value'     : 35,    # maximum length (number of characters) for parameter names in parameter tables
                'connection_ports' : True,  # if set to True, arrows point to entries in parameter tables. Otherwise, they point to the nodes
-               'use_splines' : True # if True, splines are used for the edges. otherwise orthogonal connectors
-              }
+               'use_splines'      : True,  # if True, splines are used for the edges. otherwise orthogonal connectors
+               'includeparams'    : True,  # if False, parameters are not shown which reduces graph size considerably
+               }
 
 styles = { 'Kernels'       : {'color' : '#5457b0', 'fontcolor' : '#5457b0' },
            'Variables'     : {'color' : '#000cff', 'fontcolor' : '#000cff' },
@@ -28,6 +29,13 @@ styles = { 'Kernels'       : {'color' : '#5457b0', 'fontcolor' : '#5457b0' },
            'Splits'        : {'color' : '#ff00ff', 'fontcolor' : '#ff00ff' },
          }
 
+
+#####################
+#####################
+#####################
+
+if not globaloptions['includeparams']:
+  globaloptions['connection_ports'] = False
 
 # ports only work with splines...
 if globaloptions['use_splines'] or globaloptions['connection_ports']:
@@ -164,7 +172,7 @@ def CreateParamTable(node):
 
   # create the tables for all parameters except 'type' (because this is in the headline already)
   for param, value in node.params.iteritems():
-    if param != 'type':
+    if param != 'type' and globaloptions['includeparams']:
       table += ['<TR><TD PORT="%s_PARAM">%s</TD><TD>=</TD><TD PORT="%s_VALUE">%s</TD></TR>' % (tr(param), param[0:globaloptions['maxlen_param']], tr(param), value[0:globaloptions['maxlen_value']])]
 
   table += ['</TABLE>']
