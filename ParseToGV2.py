@@ -18,20 +18,22 @@ globaloptions={'table_heading_style': 'BGCOLOR="#dddddd"', # HTML style for the 
                }
 
 #TODO: all cluster parameters are currently not available via PORTS (e.g. 'active' in ex10.i, set globaloptions['showactive']=True to see the problem)
+#TODO: add option to limit edge styling to specific parameter names
+nodestyles = { 'Kernels'       : {'color' : '#5457b0', 'fontcolor' : '#5457b0' },
+               'Variables'     : {'color' : '#000cff', 'fontcolor' : '#000cff' },
+               'ScalarKernels' : {'color' : '#000077', 'fontcolor' : '#000077' },
+               'AuxKernels'    : {'color' : '#b07854', 'fontcolor' : '#b07854' },
+               'AuxVariables'  : {'color' : '#ff6500', 'fontcolor' : '#ff6500' },
+               'BCs'           : {'color' : '#ff00b6', 'fontcolor' : '#ff00b6' },
+               'ICs'           : {'color' : '#be409a', 'fontcolor' : '#be409a' },
+               'Materials'     : {'color' : '#4d9302', 'fontcolor' : '#4d9302' },
+               'Mesh'          : {'color' : '#0000ff', 'fontcolor' : '#0000ff' },
+               'Transfers'     : {'color' : '#ff0000', 'fontcolor' : '#ff0000' },
+               'Splits'        : {'color' : '#ff00ff', 'fontcolor' : '#ff00ff' },
+             }
 
-styles = { 'Kernels'       : {'color' : '#5457b0', 'fontcolor' : '#5457b0' },
-           'Variables'     : {'color' : '#000cff', 'fontcolor' : '#000cff' },
-           'ScalarKernels' : {'color' : '#000077', 'fontcolor' : '#000077' },
-           'AuxKernels'    : {'color' : '#b07854', 'fontcolor' : '#b07854' },
-           'AuxVariables'  : {'color' : '#ff6500', 'fontcolor' : '#ff6500' },
-           'BCs'           : {'color' : '#ff00b6', 'fontcolor' : '#ff00b6' },
-           'ICs'           : {'color' : '#be409a', 'fontcolor' : '#be409a' },
-           'Materials'     : {'color' : '#4d9302', 'fontcolor' : '#4d9302' },
-           'Mesh'          : {'color' : '#0000ff', 'fontcolor' : '#0000ff' },
-           'Transfers'     : {'color' : '#ff0000', 'fontcolor' : '#ff0000' },
-           'Splits'        : {'color' : '#ff00ff', 'fontcolor' : '#ff00ff' },
-         }
-
+edgestyles = { 'Transfers'     : {'color' : '#ff0000', 'fontcolor' : '#ff0000' },
+             }
 
 #####################
 #####################
@@ -122,7 +124,7 @@ def ParseFile(filename, basepath):
     return nodes_found
 
 
-def add_edge(nd_from, nd_to, **kwargs):
+def add_edge(nd_from, nd_to, style, **kwargs):
   name_to = tr(nd_to)
   name_from = tr(nd_from)
 
@@ -132,13 +134,13 @@ def add_edge(nd_from, nd_to, **kwargs):
     if 'port_from' in kwargs.keys():
       name_from += ':%s' % kwargs['port_from']
 
-    edgelist.append('%s -> %s[];' % (name_from, name_to))
+    edgelist.append('%s -> %s[%s];' % (name_from, name_to, style))
   else:
-    edgelist.append('%s -> %s[%s="%s"];' % (name_from, name_to, kwargs['labeltype'], kwargs['label']))
+    edgelist.append('%s -> %s[%s="%s";%s];' % (name_from, name_to, kwargs['labeltype'], kwargs['label'], style))
     
 
 
-def ParseConnections(node, prefix):
+def ParseConnections(node, prefix, edgestyle):
   for param, composite_value in node.params.iteritems():
     if param == 'active' and not globaloptions['showactive']:
       continue
@@ -152,7 +154,7 @@ def ParseConnections(node, prefix):
       # * special handling for Transfer blocks (search the respective file first, redirect arrows appropriately)
       #   better reflect the data flow directions
       search_start_list = [node]
-      if node.parent != None: # TODO: highlight transfer arrows
+      if node.parent != None:
         if node.parent.name == 'Transfers':
           if (node.params['direction'] == 'to_multiapp'   and param == 'variable' ) or \
              (node.params['direction'] == 'from_multiapp' and param == 'source_variable' ):
@@ -163,9 +165,9 @@ def ParseConnections(node, prefix):
         if found:
           if param == 'variable':
             # revert edge since this feels more natural
-            add_edge(prefix + node.fullName(), nd_connected.fullName(), port_from='%s_VALUE' % tr(param), labeltype='taillabel', label=param)
+            add_edge(prefix + node.fullName(), nd_connected.fullName(), edgestyle, port_from='%s_VALUE' % tr(param), labeltype='taillabel', label=param)
           else:
-            add_edge(nd_connected.fullName(), prefix + node.fullName(), port_to='%s_PARAM' % tr(param), labeltype='headlabel', label=param)
+            add_edge(nd_connected.fullName(), prefix + node.fullName(), edgestyle, port_to='%s_PARAM' % tr(param), labeltype='headlabel', label=param)
         break
 
 
@@ -187,35 +189,44 @@ def CreateParamTable(node):
   return table
 
 
-def getStyle(nodename):
+def getNodeStyle(nodename):
   style = ''
-  if nodename in styles.keys():
-    for key, val in styles[nodename].iteritems():
+  if nodename in nodestyles.keys():
+    for key, val in nodestyles[nodename].iteritems():
       style += '%s="%s"' % (key, val)
   return style
 
 
-def ParseTree(node, parentstyle):
+def getEdgeStyle(nodename):
+  style = ''
+  if nodename in edgestyles.keys():
+    for key, val in edgestyles[nodename].iteritems():
+      style += '%s="%s"' % (key, val)
+  return style
+
+
+def ParseTree(node, parentnodestyle, parentedgestyle):
   global nodelist
-  style = parentstyle + getStyle(node.name)
+  nodestyle = parentnodestyle + getNodeStyle(node.name)
+  edgestyle = parentedgestyle + getEdgeStyle(node.name)
   table = CreateParamTable(node)
   
   if len(node.children) > 0:
     # we have to produce a cluster for this node
-    nodelist.append("subgraph cluster_%s{label=<%s>;%s" % (tr(node.fullName()), '\n'.join(table), style))
+    nodelist.append("subgraph cluster_%s{label=<%s>;%s" % (tr(node.fullName()), '\n'.join(table), nodestyle))
     # include this node's children
     for nd_child in node.children.values():
-      ParseTree(nd_child, style)
+      ParseTree(nd_child, nodestyle, edgestyle)
     nodelist.append('}')
 
     # connect parameter values etc. to respective tree nodes if we can find them
-    ParseConnections(node, prefix='cluster_')
+    ParseConnections(node, 'cluster_', edgestyle)
   else:
     # no child nodes --> no cluster
-    nodelist.append('%s[label=<%s>;%s];' % (tr(node.fullName()), '\n'.join(table), style))
+    nodelist.append('%s[label=<%s>;%s];' % (tr(node.fullName()), '\n'.join(table), nodestyle))
 
     # connect parameter values etc. to respective tree nodes if we can find them
-    ParseConnections(node, prefix='')
+    ParseConnections(node, '', edgestyle)
 
 
 if __name__ == '__main__':
@@ -230,7 +241,7 @@ if __name__ == '__main__':
       attach_child(global_root, node)
     # ...before we parse their connections
     for node in global_root.children.values():
-      ParseTree(node,'')
+      ParseTree(node, '', '')
     
 
     print 'strict digraph "%s" {' % sys.argv[1]
