@@ -16,6 +16,7 @@ globaloptions={'table_heading_style': 'BGCOLOR="#dddddd"', # HTML style for the 
 
 nodelist = []
 edgelist = []
+multiapp_nodes = {}
 
 
 def tr(s):
@@ -57,27 +58,35 @@ def search_upwards(node, search_string, **kwargs):
 
 
 def ParseFile(filename, basepath):
+  nodes_found = []
+
   if not os.path.isabs(filename):
     filename = os.path.join(basepath,filename)
   
   if not os.path.isfile(filename):
     sys.stderr.write('Could not find sub-app input file %s. Ignoring.' % filename)
+    return None
   else:
     # read the file into a GPNode object
     nd_file = ParseGetPot(filename).root_node
     nd_file.name = tr(os.path.basename(filename))
     nd_file.parent = None
+    
+    nodes_found.append(nd_file)
     # search it for any MultiApps
     nd_multiapp = getNode(nd_file, 'MultiApps')
     if nd_multiapp != None:
       # traverse over all possible sub-apps
       for nd_sub in nd_multiapp.children.values():
         # traverse over all entries in their 'input_files' parameter
+        multiapp_nodes[nd_sub.name] = []
         for filename_sub in nd_sub.params['input_files'].split(' '):
-          nd_subfile = ParseFile(filename_sub, basepath)
-          attach_child(nd_sub, nd_subfile)
+          nodes_subfile = ParseFile(filename_sub, basepath)
+          # we store references to the multiapp_nodes for simpler interconnection code in Transfer objects
+          multiapp_nodes[nd_sub.name] += nodes_subfile
+          nodes_found += nodes_subfile
           
-    return nd_file
+    return nodes_found
 
 
 def add_edge(nd_from, nd_to, **kwargs):
@@ -93,19 +102,27 @@ def add_edge(nd_from, nd_to, **kwargs):
 
 def ParseConnections(node):
   for param, value in node.params.iteritems():
-    # regular parameter
-    # we first search local trees and traverse upwards until we found something
+    # Try to connect regular parameters to respective blocks.
+    # We first search local trees and traverse upwards until we found something
     # this looks inefficient but enforces matches to be as local as possible
-    # TODO: special handling for Transfer blocks (search the respective file first, redirect arrows appropriately)
-    # We prevent pointing to ourselves because no block will ever reference itself (I assume)
-    # Furthermore, we prefer starting our search in a Variables or AuxVariables block
-    nd_connected, found = search_upwards(node, value, excludenodes=[node.fullName()], prefernodenames=['Variables', 'AuxVariables'])
-    if found:
-      if param == 'variable':
-        # revert edge since this feels more natural
-        add_edge(node, nd_connected, port_from='%s_VALUE' % tr(param))
-      else:
-        add_edge(nd_connected, node, port_to='%s_PARAM' % tr(param))
+    # * we prevent pointing to ourselves because no block will ever reference itself (I assume)
+    # * we prefer starting our search in a Variables or AuxVariables block
+    # * special handling for Transfer blocks (search the respective file first, redirect arrows appropriately)
+    #   better reflect the data flow directions
+    search_start_list = [node]
+    if node.parent != None:
+      if node.parent.name == 'Transfers':
+        search_start_list = multiapp_nodes[node.params['multi_app']] + search_start_list
+    
+    for search_start in search_start_list:
+      nd_connected, found = search_upwards(search_start, value, excludenodes=[node.fullName()], prefernodenames=['Variables', 'AuxVariables'])
+      if found:
+        if param == 'variable':
+          # revert edge since this feels more natural
+          add_edge(node, nd_connected, port_from='%s_VALUE' % tr(param))
+        else:
+          add_edge(nd_connected, node, port_to='%s_PARAM' % tr(param))
+      break
 
 
 def CreateParamTable(node):
@@ -151,10 +168,13 @@ if __name__ == '__main__':
     basepath = os.path.dirname(filename)
     # since we also want to draw connections between different files
     # (for sub-apps), we first have to read them completely...
-    global_root = ParseFile(filename, basepath)
-    
+    global_root = GPNode('global_root', None)
+    nodes_found = ParseFile(filename, basepath)
+    for node in nodes_found:
+      attach_child(global_root, node)
     # ...before we parse their connections
-    ParseTree(global_root)
+    for node in global_root.children.values():
+      ParseTree(node)
     
 
     print 'strict digraph "%s" {' % sys.argv[1]
