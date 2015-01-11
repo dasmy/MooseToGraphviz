@@ -8,8 +8,7 @@ gv_globalpars=['layout=dot;size="20,20";rankdir=LR;splines=true;pad="0";ranksep=
                'node[shape=box3d];'
                'edge[color="#808080";fontcolor="#808080"];']
                
-globaloptions={'node_table_heading_style': 'BGCOLOR="#dddddd"', # HTML style for the parameter table headings for regular nodes
-               'cluster_table_heading_style': '', # HTML style for the parameter table headings for clusters
+globaloptions={'table_heading_style': 'BGCOLOR="#dddddd"', # HTML style for the parameter table headings
                'maxlen_param': 20, # maximum length (number of characters) for parameter names in parameter tables
                'maxlen_value': 35, # maximum length (number of characters) for parameter names in parameter tables
               }
@@ -92,18 +91,13 @@ def ParseConnections(node):
         add_edge(nd_connected, node, port_to='%s_PARAM' % tr(param))
 
 
-def CreateParamTable(node, heading):
+def CreateParamTable(node):
   # add node name (and type if available) in a heading line with colored background
   table = ['<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1">']
-  if heading:
-    table += ['<TR><TD COLSPAN="3" %s><B>%s&nbsp;</B>' % (globaloptions['node_table_heading_style'], tr(node.name))]
-    if 'type' in node.params_list:
-      table[-1] += ':&nbsp;%s' % node.params['type']
-    table[-1] += '</TD></TR>'
-  else:
-    # add node type if available in a heading line with no
-    if 'type' in node.params_list:
-      table += ['<TR><TD COLSPAN="3" %s><B>%s&nbsp;</B></TD></TR>' % (tr(globaloptions['cluster_table_heading_style']), node.params['type'])]
+  table += ['<TR><TD COLSPAN="3" %s><B>%s&nbsp;</B>' % (globaloptions['table_heading_style'], tr(node.name))]
+  if 'type' in node.params_list:
+    table[-1] += ':&nbsp;%s' % node.params['type']
+  table[-1] += '</TD></TR>'
 
   # create the tables for all parameters except 'type' (because this is in the headline already)
   for param, value in node.params.iteritems():
@@ -117,23 +111,17 @@ def CreateParamTable(node, heading):
 
 def ParseTree(node):
   global nodelist
+  table = CreateParamTable(node)
+  
   if len(node.children) > 0:
     # we have to produce a cluster for this node
-    nodelist.append("subgraph cluster_%s{label=<<B>%s</B>" % (tr(node.fullName()), node.name))
-    # for clusters we do not want to show an empty table
-    nodelist[-1] += '>;'
-
-    # TODO: i would sincerely like to see this aspart of the cluster label instead of as a separate node
-    if len(node.params) > 0:
-      table = CreateParamTable(node, False)
-      nodelist.append('%s[label=<%s>; shape=plaintext];' % (tr(node.fullName()), '\n'.join(table)))
-    
+    nodelist.append("subgraph cluster_%s{label=<%s>" % (tr(node.fullName()), '\n'.join(table)))
+    # include this node's children
     for nd_child in node.children.values():
       ParseTree(nd_child)
     nodelist.append('}')
   else:
     # no child nodes --> no cluster
-    table = CreateParamTable(node, True)
     nodelist.append('%s[label=<%s>];' % (tr(node.fullName()), '\n'.join(table)))
 
   # connect parameter values etc. to respective tree nodes if we can find them
