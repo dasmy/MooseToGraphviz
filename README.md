@@ -61,3 +61,4 @@ Known Issues
   This is why sometimes arrows point into the nowhere (where a new node is created automagically).
   For `ex14.i`, the same problem appears with the `marker` parameter and in `ex07.i` with the variable that has a sub-object containing the InitialCondition.
 * Comments are currently completely ignored.
+* Found another problem? - Please report an [Issue](https://github.com/dasmy/MooseToGraphviz/issues) - ideally with a minimal example of the offending input file. :smile:
