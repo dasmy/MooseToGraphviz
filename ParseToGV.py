@@ -15,6 +15,7 @@ globaloptions={'table_heading_style': 'BGCOLOR="#dddddd"', # HTML style for the 
                'use_splines'      : True,  # if True, splines are used for the edges. otherwise orthogonal connectors
                'includeparams'    : True,  # if False, parameters are not shown which reduces graph size considerably
                'showactive'       : False, # if set to False, node's "active" parameters are ignored for the output (usually they make output a bit messy but do not add much information)
+               'clusterstyle'     : 'labelloc=t;labeljust=l;', # special style attributes for clusters (i.e. the large rectangles)
                }
 
 # the style search criteria (first column in the following) may be regular expressions that will be checked against node.fullName()[+param_name]
@@ -225,7 +226,7 @@ def ParseTree(node):
   
   if len(node.children) > 0:
     # we have to produce a cluster for this node
-    nodelist.append("subgraph cluster_%s{label=<%s>;%s" % (tr(node.fullName()), '\n'.join(table), nodestyle))
+    nodelist.append("subgraph cluster_%s{label=<%s>;%s%s" % (tr(node.fullName()), '\n'.join(table), nodestyle, globaloptions['clusterstyle']))
     # include this node's children
     for nd_child in node.children.values():
       ParseTree(nd_child)
