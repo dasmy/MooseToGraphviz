@@ -168,7 +168,7 @@ def add_edge(nd_from, nd_to, style, **kwargs):
     
 
 
-def ParseConnections(node, prefix):
+def ParseConnections(node):
   for param, composite_value in node.params.iteritems():
     if param == 'active' and not globaloptions['showactive']:
       continue
@@ -195,13 +195,14 @@ def ParseConnections(node, prefix):
         
           if param == 'variable':
             # revert edge since this feels more natural
-            add_edge(prefix + node.fullName(), nd_connected.fullName(), edgestyle, port_from='%s_VALUE' % tr(param), labeltype='taillabel', label=param)
+            add_edge(node.fullName(), nd_connected.fullName(), edgestyle, port_from='%s_VALUE' % tr(param), labeltype='taillabel', label=param)
           else:
-            add_edge(nd_connected.fullName(), prefix + node.fullName(), edgestyle, port_to='%s_PARAM' % tr(param), labeltype='headlabel', label=param)
+            add_edge(nd_connected.fullName(), node.fullName(), edgestyle, port_to='%s_PARAM' % tr(param), labeltype='headlabel', label=param)
         break
 
 
 def CreateParamTable(node):
+  numrows = 0
   # add node name (and type if available) in a heading line with colored background
   table = ['<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1">']
   table += ['<TR><TD COLSPAN="3" %s><B>%s&nbsp;</B>' % (globaloptions['table_heading_style'], tr(node.name))]
@@ -210,36 +211,48 @@ def CreateParamTable(node):
   table[-1] += '</TD></TR>'
 
   # create the tables for all parameters except 'type' (because this is in the headline already)
+  # also exclude 'active' if requested
   for param, value in node.params.iteritems():
-    if param != 'type' and globaloptions['includeparams']:
+    if globaloptions['includeparams'] and param != 'type' and not (not globaloptions['showactive'] and param=='active'):
+      numrows += 1
       table += ['<TR><TD PORT="%s_PARAM">%s</TD><TD>=</TD><TD PORT="%s_VALUE">%s</TD></TR>' % (tr(param), param[0:globaloptions['maxlen_param']], tr(param), value[0:globaloptions['maxlen_value']])]
 
   table += ['</TABLE>']
   
-  return table
+  return table, numrows
 
 
 def ParseTree(node):
   global nodelist
   nodestyle = findStyle(nodestyles, node.fullName())
-  table = CreateParamTable(node)
+  table, numrows = CreateParamTable(node)
   
   if len(node.children) > 0:
     # we have to produce a cluster for this node
-    nodelist.append("subgraph cluster_%s{label=<%s>;%s%s" % (tr(node.fullName()), '\n'.join(table), nodestyle, globaloptions['clusterstyle']))
+    #
+    # Unfortunately, ports do not work in cluster labels.
+    # Thus, cluster parameters could not be connected width appropriate edges
+    if globaloptions['connection_ports']:
+      # create cluster
+      nodelist.append("subgraph cluster_%s{label=<%s>;%s%s" % (tr(node.fullName()), node.name, nodestyle, globaloptions['clusterstyle']))
+      # add a node with the table
+      if numrows > 0:
+        nodelist.append('%s[label=<%s>;shape="plaintext";%s];' % (tr(node.fullName()), '\n'.join(table), nodestyle))
+    else:
+      nodelist.append("subgraph cluster_%s{label=<%s>;%s%s" % (tr(node.fullName()), '\n'.join(table), nodestyle, globaloptions['clusterstyle']))
     # include this node's children
     for nd_child in node.children.values():
       ParseTree(nd_child)
     nodelist.append('}')
 
     # connect parameter values etc. to respective tree nodes if we can find them
-    ParseConnections(node, 'cluster_')
+    ParseConnections(node)
   else:
     # no child nodes --> no cluster
     nodelist.append('%s[label=<%s>;%s];' % (tr(node.fullName()), '\n'.join(table), nodestyle))
 
     # connect parameter values etc. to respective tree nodes if we can find them
-    ParseConnections(node, '')
+    ParseConnections(node)
 
 
 if __name__ == '__main__':

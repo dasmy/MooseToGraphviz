@@ -57,8 +57,5 @@ A rather complex example is composed of [`delta_real_parameters.i`](examples/del
 
 Known Issues
 ------------
-* All cluster parameters are currently not available via PORTS (e.g. `active` in `ex10.i`, set `globaloptions['showactive']=True` to see the problem here)
-  This is why sometimes arrows point into the nowhere (where a new node is created automagically).
-  For `ex14.i`, the same problem appears with the `marker` parameter and in `ex07.i` with the variable that has a sub-object containing the InitialCondition.
 * Comments are currently completely ignored.
 * Found another problem? - Please report an [Issue](https://github.com/dasmy/MooseToGraphviz/issues) - ideally with a minimal example of the offending input file. :smile:
